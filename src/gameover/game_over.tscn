@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://weq0dje1vc6f" path="res://src/gameover/game_over.gd" id="1_gameover"]
 [ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="2_pbwxr"]
-[ext_resource type="Script" uid="uid://c1u634qxj1813" path="res://src/gameover/titleRainbow.gd" id="3_r0ly3"]
+[ext_resource type="Script" uid="uid://c84xp4etsr7oo" path="res://src/ui/rainbowCanvasItem.gd" id="3_r0ly3"]
 
 [node name="GameOver" type="Control" unique_id=1397512582]
 process_mode = 3
@@ -51,10 +51,6 @@ scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 script = ExtResource("3_r0ly3")
-saturation = 0.325
-brightness = 0.765
-hue = 0.523
-rainbow_speed = 1.0
 
 [node name="Retry" type="Button" parent="VBoxContainer" unique_id=1085053178]
 layout_mode = 2
