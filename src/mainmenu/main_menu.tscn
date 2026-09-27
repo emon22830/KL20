@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d05o8woarffm3" path="res://src/ui/options/options.tscn" id="2_u17xg"]
 [ext_resource type="Texture2D" uid="uid://c2uv1y42cdt3d" path="res://asset/ascii-art/play.png" id="3_p1ij0"]
 [ext_resource type="Texture2D" uid="uid://blho3d1tp76s0" path="res://asset/test/final1.png" id="3_tggik"]
+[ext_resource type="Script" uid="uid://dkpp74oeamh8q" path="res://src/ui/button_animation.gd" id="4_7seqg"]
 [ext_resource type="Texture2D" uid="uid://b35eow7vagmf" path="res://asset/ascii-art/options.png" id="4_nqbv2"]
 [ext_resource type="Texture2D" uid="uid://b46pd2iwe7rpl" path="res://asset/ascii-art/exit.png" id="5_7seqg"]
 
@@ -18,7 +19,7 @@ grow_vertical = 2
 script = ExtResource("1_pfhkm")
 
 [node name="MainTitle" type="Sprite2D" parent="." unique_id=200785849]
-position = Vector2(947, 213)
+position = Vector2(968, 213)
 texture = ExtResource("3_tggik")
 
 [node name="Play" type="Button" parent="." unique_id=1761478992]
@@ -33,6 +34,7 @@ offset_transform_enabled = true
 offset_transform_scale = Vector2(0.755, 0.755)
 icon = ExtResource("3_p1ij0")
 flat = true
+script = ExtResource("4_7seqg")
 
 [node name="Options" type="Button" parent="." unique_id=649768266]
 layout_mode = 0
@@ -46,6 +48,7 @@ offset_transform_enabled = true
 offset_transform_scale = Vector2(0.755, 0.755)
 icon = ExtResource("4_nqbv2")
 flat = true
+script = ExtResource("4_7seqg")
 
 [node name="Exit" type="Button" parent="." unique_id=576317864]
 layout_mode = 0
@@ -60,6 +63,7 @@ offset_transform_scale = Vector2(0.755, 0.755)
 icon = ExtResource("5_7seqg")
 flat = true
 icon_alignment = 1
+script = ExtResource("4_7seqg")
 
 [node name="OptionsMenu" parent="." unique_id=773503458 instance=ExtResource("2_u17xg")]
 visible = false
