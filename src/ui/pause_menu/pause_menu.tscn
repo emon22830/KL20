@@ -13,19 +13,22 @@ script = ExtResource("1_fsbbv")
 
 [node name="GameUi" type="Control" parent="." unique_id=1274690202]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1150.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PauseButton" type="Button" parent="GameUi" unique_id=1450145583]
 layout_mode = 0
-offset_left = 1098.0
-offset_top = 16.0
-offset_right = 1131.0
-offset_bottom = 50.0
+offset_left = 1858.0
+offset_top = 25.0
+offset_right = 1891.0
+offset_bottom = 59.0
 text = "II"
 
 [node name="PauseOverlay" type="Control" parent="." unique_id=1262709487]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
