@@ -7,9 +7,11 @@ extends Area2D
 var direction := Vector2.RIGHT
 
 @onready var label : RichTextLabel = $RichTextLabel
+@onready var collidor :CollisionShape2D = $CollisionShape2D
 
 func _ready() -> void:
 	rotation = direction.angle()
+	collidor.shape.size = label.get_minimum_size()
 	get_tree().create_timer(lifetime).timeout.connect(queue_free)
 
 func _physics_process(delta: float) -> void:

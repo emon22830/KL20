@@ -9,9 +9,6 @@
 scale = Vector2(4, 4)
 collision_layer = 0
 script = ExtResource("1_bullet")
-speed = null
-damage = null
-lifetime = null
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1340836668]
 offset_left = -100.0
