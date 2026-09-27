@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://xj3wnkr7gya7" path="res://src/main/fps_count.gd" id="4_djufw"]
 [ext_resource type="PackedScene" uid="uid://bk6kq1k6wx8hy" path="res://src/enemy/enemy_spawner.tscn" id="5_jkpqq"]
 [ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="6_jqarl"]
+[ext_resource type="PackedScene" uid="uid://dstv5dx8sivvm" path="res://src/ui/xp_bar/xp_bar.tscn" id="7_30cu5"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mf2ua"]
 blend_mode = 3
@@ -42,3 +43,5 @@ theme_override_constants/outline_size = 6
 theme_override_fonts/normal_font = ExtResource("6_jqarl")
 theme_override_font_sizes/normal_font_size = 62
 text = "dasdasasdaasd"
+
+[node name="XpBar" parent="." unique_id=1912313236 instance=ExtResource("7_30cu5")]
