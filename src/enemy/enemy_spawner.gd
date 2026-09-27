@@ -20,6 +20,7 @@ var spawn_timer : Timer
 
 func _ready() -> void:
 	GameManager.enemy_spawner = self
+	enemy_max_set()
 	
 	current_min_hp = start_min_hp
 	current_max_hp = start_max_hp
@@ -30,17 +31,17 @@ func _ready() -> void:
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 	add_child(spawn_timer)
 
-	spawn_next_enemy()
+	spawn(get_random_hp())
 
+func enemy_max_set() -> void:
+	if nearest_po2(current_min_hp) <= 0:
+		GameManager.enemy_max_count = 5
+		return
+	
+	GameManager.enemy_max_count = log(nearest_po2(current_min_hp)) + 5
 
 func _on_spawn_timer_timeout() -> void:
-	spawn_next_enemy()
-
-
-func spawn_next_enemy() -> void:
 	spawn(get_random_hp())
-	#spawn(1)
-	#grow_hp_range()
 
 
 func get_random_hp() -> int:
@@ -50,19 +51,26 @@ func get_random_hp() -> int:
 func grow_hp_range() -> void:
 	current_max_hp = ceili(current_max_hp * hp_growth_multiplier)
 	current_min_hp = ceili(current_max_hp / hp_growth_multiplier / 2)
-	print(current_max_hp)
-	print(current_min_hp)
+	enemy_max_set()
 	
 
 
 func spawn(hp: int = 0) -> void:
+	#print("spawning")
+	
 	if not is_instance_valid(GameManager.player):
+		return
+	
+	if GameManager.enemy_list.size() >= GameManager.enemy_max_count:
+		#print(GameManager.enemy_list.size())
+		#print(GameManager.enemy_max_count)
 		return
 
 	var enemy_node = enemy_scene.instantiate()
 	enemy_node.position = random_spawn_position()
 	enemy_node.hp = hp
 	get_tree().current_scene.add_child.call_deferred(enemy_node)
+	GameManager.enemy_list.append(enemy_node)
 
 
 func random_spawn_position() -> Vector2:

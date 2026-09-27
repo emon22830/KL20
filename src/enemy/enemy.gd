@@ -43,7 +43,8 @@ func die() -> void:
 	orb.position = global_position
 	orb.xp_value = max_hp
 	get_tree().current_scene.add_child.call_deferred(orb)
-
+	GameManager.enemy_list.erase(self)
+	
 	queue_free()
 
 func _process(delta: float) -> void:
