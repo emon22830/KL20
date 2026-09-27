@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends RigidBody2D
 
 var hp : int = 0
 var max_hp : int = 0
@@ -47,8 +47,24 @@ func die() -> void:
 	
 	queue_free()
 
-func _process(delta: float) -> void:
+#func _process(delta: float) -> void:
+	#var direction = GameManager.player.position - position 
+	#velocity = direction.normalized() * 200
+	#move_and_slide()
+	#pass
+
+func _physics_process(delta: float) -> void:
+	
+	if abs(linear_velocity) > Vector2(0.01, 0.01) : 
+		linear_velocity += -linear_velocity / 10
+		return
+	
+	#if abs(linear_velocity) < Vector2(0.01, 0.01):
+		#print("trying set 0 somehow")
+		#linear_velocity = Vector2.ZERO
+	
 	var direction = GameManager.player.position - position 
-	velocity = direction.normalized() * 200
-	move_and_slide()
-	pass
+	var random_offset = randf_range(-0.3, 0.3)   # radians, adjust spread as needed
+	direction = direction.rotated(random_offset)
+	direction = direction.normalized()
+	apply_central_impulse(direction * 2000)

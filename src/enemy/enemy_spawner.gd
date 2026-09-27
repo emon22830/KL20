@@ -69,6 +69,7 @@ func spawn(hp: int = 0) -> void:
 	var enemy_node = enemy_scene.instantiate()
 	enemy_node.position = random_spawn_position()
 	enemy_node.hp = hp
+	enemy_node.max_hp = hp
 	get_tree().current_scene.add_child.call_deferred(enemy_node)
 	GameManager.enemy_list.append(enemy_node)
 

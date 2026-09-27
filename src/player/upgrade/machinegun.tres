@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GunStats" format=3 uid="uid://ctqb1q27u65ob"]
+
+[ext_resource type="Script" uid="uid://thg38o1b3uy2" path="res://src/player/gun_stats.gd" id="1_axmyj"]
+
+[resource]
+script = ExtResource("1_axmyj")
+bullet_amount = 0
+bullet_damage = 0
+fire_rate = -0.2
+bullet_speed = 0.0
+spread = 10.0

@@ -4,3 +4,6 @@
 
 [resource]
 script = ExtResource("1_q0fpy")
+fire_rate = 1.0
+bullet_speed = 100.0
+spread = 1.0

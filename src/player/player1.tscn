@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://brmohi13ao78p" path="res://src/player/player1.gd" id="1_8m7xy"]
 [ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="2_a781h"]
 [ext_resource type="Script" uid="uid://bujqov2rqyb1g" path="res://src/player/gun.gd" id="3_gtf5j"]
-[ext_resource type="Resource" uid="uid://3fjajar5311x" path="res://src/player/new_resource.tres" id="4_srper"]
 
 [sub_resource type="Theme" id="Theme_4anbu"]
 default_base_scale = 1.0
@@ -12,7 +11,7 @@ default_base_scale = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fu6ie"]
 
-[node name="Player" type="CharacterBody2D" unique_id=874143678 groups=["player"]]
+[node name="Player2" type="CharacterBody2D" unique_id=874143678 groups=["player"]]
 modulate = Color(0, 1, 0, 1)
 script = ExtResource("1_8m7xy")
 
@@ -52,7 +51,6 @@ shape = SubResource("RectangleShape2D_fu6ie")
 
 [node name="gun" type="Node2D" parent="." unique_id=475643059]
 script = ExtResource("3_gtf5j")
-starting_stats = ExtResource("4_srper")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_area_entered"]
 [connection signal="area_exited" from="Hitbox" to="." method="_on_area_exited"]

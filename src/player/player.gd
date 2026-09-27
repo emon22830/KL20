@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 @export var speed := 300.0
+@export var burst := 1000
+@export var temp_burst : int
+@export var dashing : bool = false
 @export var hp : int = 1
 @export var max_hp : int = 1
 @export var exp : int = 0
@@ -16,6 +19,7 @@ extends CharacterBody2D
 @onready var collider := $Collider
 @onready var hitbox := $Hitbox
 @onready var hitbox_collider := $Hitbox/Collider
+@onready var gun := $gun
 
 
 var contacting_enemy : bool = false
@@ -36,14 +40,29 @@ func set_hp() -> void:
 	hitbox_collider.shape.size = sprite_size
 
 func _physics_process(_delta):
-	var direction = Vector2.ZERO
+	var direction := Vector2.ZERO
+	
+	if dashing : 
+		temp_burst -= 50
+		print(temp_burst)
+	
+	if temp_burst <= 0 : 
+		dashing = false
+		temp_burst = 0
+	
+	if Input.is_action_just_pressed("dash") && !dashing:
+		temp_burst = burst
+		dashing = true
 	
 	direction.x = Input.get_axis("move_left", "move_right")
 	direction.y = Input.get_axis("move_up", "move_down")
 	
 	direction = direction.normalized()
 	
-	velocity = direction * speed
+	velocity = direction * (speed + temp_burst)
+	
+	
+	
 	
 	move_and_slide()
 	
@@ -106,16 +125,18 @@ func _on_area_exited(area: Area2D) -> void:
 func add_xp(xp : int) -> void:
 	#print(xp)
 	
-	if hp < max_hp:
-		hp += xp
-		check_hp()
+	hp += xp
+	if hp > max_hp:
+		hp = max_hp
 	
-	if exp < max_exp:
+	check_hp()
+	
+	if exp < max_exp - xp:
 		exp += xp
 	else:
-		print(max_hp)
 		max_exp = max_exp * max_exp_increment
 		exp = 0
 		level += 1
 		max_hp = max_exp
 		GameManager.enemy_spawner.grow_hp_range()
+		gun.upgrade(gun.pick_upgrade())
