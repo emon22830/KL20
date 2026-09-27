@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dxyseoqbt31fv"
-path="res://.godot/imported/AvenuePixelSoft-Stroke-Regular.otf-215f66ca43c82ad5382cf53ac50d7e83.fontdata"
+uid="uid://d3itg5u8xvefx"
+path="res://.godot/imported/AvenuePixel-Regular.otf-446fabc5c78c808c3fa9d8092ace6896.fontdata"
 
 [deps]
 
-source_file="res://asset/font/AvenuePixelSoft-Stroke-Regular.otf"
-dest_files=["res://.godot/imported/AvenuePixelSoft-Stroke-Regular.otf-215f66ca43c82ad5382cf53ac50d7e83.fontdata"]
+source_file="res://asset/font/AvenuePixel-Regular.otf"
+dest_files=["res://.godot/imported/AvenuePixel-Regular.otf-446fabc5c78c808c3fa9d8092ace6896.fontdata"]
 
 [params]
 
