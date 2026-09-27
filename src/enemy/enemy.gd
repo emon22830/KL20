@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 var hp : int = 0
 
-@export var xp_orb_scene: PackedScene = preload("res://src/xp_orb/xp_orb.tscn") # NEW
-var is_dead: bool = false # NEW
+@export var xp_orb_scene: PackedScene = preload("res://src/xp_orb/xp_orb.tscn") 
+var is_dead: bool = false 
 
 @onready var sprite := $Sprite
 @onready var collider := $Collider
@@ -20,7 +20,6 @@ func set_hp() -> void:
 	sprite.text = str(hp)
 	var sprite_size = sprite.get_minimum_size()
 	collider.shape.size = sprite_size
-	#collider.position = sprite.position / 2
 
 func on_take_damage(amount : int) -> void:
 	hp -= amount
@@ -29,13 +28,12 @@ func on_take_damage(amount : int) -> void:
 func check_hp() -> void:
 	print("enemy checking hp :" + str(hp))
 	if hp <= 0:
-		die() # NEW (replaces self.queue_free())
+		die()
 		return
 	
 	set_hp()
 
-func die() -> void: # NEW
-	# Stops the enemy from dying twice (and dropping 2 orbs)
+func die() -> void:
 	if is_dead:
 		return
 	is_dead = true
@@ -50,5 +48,4 @@ func _process(delta: float) -> void:
 	var direction = GameManager.player.position - position 
 	velocity = direction.normalized() * 200
 	move_and_slide()
-	#on_take_damage(1)
 	pass
