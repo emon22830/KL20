@@ -1,10 +1,15 @@
 extends CharacterBody2D
+
 @export var speed := 300.0
-@export var hp : float = 3
+@export var hp : int = 100
 @export var colliding_bodies : Array = []
 @export var bullet_scene : PackedScene = preload("res://src/bullet/bullet.tscn")
 @export var fire_cooldown := 0.2
 @export var muzzle_offset := Vector2(0, -66)
+
+@onready var sprite := $Sprite
+@onready var collider := $Collider
+
 
 var contacting_enemy : bool = false
 var is_invincible: bool = false
@@ -13,6 +18,14 @@ var can_shoot : bool = true
 func _ready() -> void:
 	SignalBus.take_damage.connect(on_take_damage)
 	GameManager.player = self
+	sprite.autowrap_mode = TextServer.AUTOWRAP_OFF
+	sprite.fit_content = true
+	check_hp()
+
+func set_hp() -> void:
+	sprite.text = str(hp)
+	var sprite_size = sprite.get_minimum_size()
+	collider.shape.size = sprite_size
 
 func _physics_process(_delta):
 	var direction = Vector2.ZERO
@@ -28,6 +41,9 @@ func _physics_process(_delta):
 	
 	if Input.is_action_pressed("shoot") and can_shoot:
 		shoot()
+	
+	if !colliding_bodies.is_empty():
+		check_contact()
 
 func shoot() -> void:
 	can_shoot = false
@@ -39,31 +55,35 @@ func shoot() -> void:
 	get_tree().current_scene.add_child(bullet)
 
 
-
-func check_enemy_contact() -> void:
+func check_contact() -> void:
 	for body in colliding_bodies:
 		if body.is_in_group("enemy"):
 			on_take_damage(1)
 
-func on_take_damage(amount : float) -> void:
-	if is_invincible:
-		return
-	
-	hp -= amount
+func check_hp() -> void:
 	if hp <= 0:
 			get_tree().change_scene_to_file("res://src/gameover/game_over.tscn")
 			return
 	
-	is_invincible = true
-	var timer = get_tree().create_timer(1)
-	timer.timeout.connect(_on_iframe_timeout)
+	set_hp()
+
+func on_take_damage(amount : float) -> void:
+	#if is_invincible:
+		#return
+	
+	hp -= amount
+	check_hp()
+	
+	#is_invincible = true
+	#var timer = get_tree().create_timer(1)
+	#timer.timeout.connect(_on_iframe_timeout)
 
 func _on_body_entered(body: Node2D) -> void:
 	colliding_bodies.append(body)
 
-func _on_iframe_timeout() -> void:
-	is_invincible = false
-	check_enemy_contact()
+#func _on_iframe_timeout() -> void:
+	#is_invincible = false
+	#check_enemy_contact()
 
 func _on_body_exited(body: Node2D) -> void:
 	colliding_bodies.erase(body)
@@ -71,8 +91,6 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	colliding_bodies.append(area)
-	check_enemy_contact()
-
 
 func _on_area_exited(area: Area2D) -> void:
 	colliding_bodies.erase(area)

@@ -1,23 +1,41 @@
 [gd_scene format=3 uid="uid://dp2028b27qjuw"]
 
 [ext_resource type="Script" uid="uid://d2g138ce0u11w" path="res://src/player/player.gd" id="1_rxibo"]
-[ext_resource type="Texture2D" uid="uid://spaer7g4v76u" path="res://icon.svg" id="2_mf2ua"]
+[ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="2_rxibo"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vlew8"]
-radius = 89.0
-height = 178.0
+[sub_resource type="Theme" id="Theme_4anbu"]
+default_base_scale = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0s08s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu6ie"]
 
 [node name="Player" type="CharacterBody2D" unique_id=874143678 groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_rxibo")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1675871547]
-position = Vector2(-1, -67)
-texture = ExtResource("2_mf2ua")
+[node name="Sprite" type="RichTextLabel" parent="." unique_id=527763547]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_4anbu")
+theme_override_fonts/normal_font = ExtResource("2_rxibo")
+theme_override_font_sizes/normal_font_size = 160
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=370281988]
-position = Vector2(-2, -66)
-shape = SubResource("CapsuleShape2D_vlew8")
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=370281988]
+shape = SubResource("RectangleShape2D_0s08s")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1528122731]
 zoom = Vector2(0.5, 0.5)
@@ -26,9 +44,8 @@ position_smoothing_speed = 10.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1211194296]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=824898735]
-position = Vector2(-2, -66)
-shape = SubResource("CapsuleShape2D_vlew8")
+[node name="Collider" type="CollisionShape2D" parent="Area2D" unique_id=824898735]
+shape = SubResource("RectangleShape2D_fu6ie")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_exited"]
