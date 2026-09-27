@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://d2g138ce0u11w" path="res://src/player/player.gd" id="1_rxibo"]
 [ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="2_rxibo"]
+[ext_resource type="Script" uid="uid://bujqov2rqyb1g" path="res://src/player/gun.gd" id="3_mf2ua"]
+[ext_resource type="Resource" uid="uid://3fjajar5311x" path="res://src/player/new_resource.tres" id="4_244u8"]
 
 [sub_resource type="Theme" id="Theme_4anbu"]
 default_base_scale = 1.0
@@ -47,6 +49,10 @@ collision_mask = 5
 
 [node name="Collider" type="CollisionShape2D" parent="Hitbox" unique_id=824898735]
 shape = SubResource("RectangleShape2D_fu6ie")
+
+[node name="gun" type="Node2D" parent="." unique_id=475643059]
+script = ExtResource("3_mf2ua")
+starting_stats = ExtResource("4_244u8")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_area_entered"]
 [connection signal="area_exited" from="Hitbox" to="." method="_on_area_exited"]
