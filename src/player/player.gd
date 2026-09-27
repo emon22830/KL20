@@ -51,7 +51,7 @@ func on_take_damage(amount : float) -> void:
 	
 	hp -= amount
 	if hp <= 0:
-			get_tree().change_scene_to_file("res://src/mainmenu/main_menu.tscn")
+			get_tree().change_scene_to_file("res://src/gameover/game_over.tscn")
 			return
 	
 	is_invincible = true
