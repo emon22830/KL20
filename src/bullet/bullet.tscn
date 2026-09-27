@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dnda3rdulsiur"]
 
 [ext_resource type="Script" uid="uid://c1iqqmhq0shkj" path="res://src/bullet/bullet.gd" id="1_bullet"]
-[ext_resource type="FontFile" path="res://asset/font/AvenuePixelSoft-Stroke-Regular.otf" id="2_rdh5j"]
+[ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="2_rdh5j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lu8q3"]
 
@@ -9,9 +9,8 @@
 scale = Vector2(4, 4)
 collision_layer = 0
 script = ExtResource("1_bullet")
-speed = null
-damage = null
-lifetime = null
+speed = 1500.0
+lifetime = 4.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1340836668]
 offset_left = -100.0
@@ -21,7 +20,6 @@ offset_bottom = 30.0
 mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_rdh5j")
 theme_override_font_sizes/normal_font_size = 48
-theme_override_font_sizes/bold_font_size = 48
 text = "-"
 scroll_active = false
 autowrap_mode = 0
