@@ -9,6 +9,7 @@ var direction := Vector2.RIGHT
 @onready var label : RichTextLabel = $RichTextLabel
 
 func _ready() -> void:
+	rotation = direction.angle()
 	get_tree().create_timer(lifetime).timeout.connect(queue_free)
 
 func _physics_process(delta: float) -> void:
