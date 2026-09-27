@@ -53,7 +53,7 @@ func shoot() -> void:
 	get_tree().create_timer(fire_cooldown).timeout.connect(func(): can_shoot = true)
 	
 	var bullet = bullet_scene.instantiate()
-	bullet.global_position = global_position + muzzle_offset
+	bullet.global_position = global_position
 	bullet.direction = (get_global_mouse_position() - bullet.global_position).normalized()
 	get_tree().current_scene.add_child(bullet)
 

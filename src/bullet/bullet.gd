@@ -6,12 +6,14 @@ extends Area2D
 
 var direction := Vector2.RIGHT
 
-@onready var label : RichTextLabel = $RichTextLabel
-@onready var collidor :CollisionShape2D = $CollisionShape2D
+@onready var sprite : RichTextLabel = $Sprite
+@onready var collidor :CollisionShape2D = $Collider
 
 func _ready() -> void:
+	sprite.fit_content = true
+	sprite.autowrap_mode = TextServer.AUTOWRAP_OFF
 	rotation = direction.angle()
-	collidor.shape.size = label.get_minimum_size()
+	collidor.shape.size.x = sprite.get_minimum_size().x
 	get_tree().create_timer(lifetime).timeout.connect(queue_free)
 
 func _physics_process(delta: float) -> void:

@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="2_rdh5j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lu8q3"]
+size = Vector2(20, 10)
 
 [node name="Bullet" type="Area2D" unique_id=935828773]
 scale = Vector2(4, 4)
@@ -11,23 +12,31 @@ collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_bullet")
 speed = 1500.0
-lifetime = 4.0
+lifetime = 10.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1340836668]
-offset_left = -100.0
-offset_top = -30.0
-offset_right = 100.0
-offset_bottom = 30.0
+[node name="Sprite" type="RichTextLabel" parent="." unique_id=1340836668]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.75
+offset_top = -27.25
+offset_right = 27.0
+offset_bottom = 23.75
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_rdh5j")
 theme_override_font_sizes/normal_font_size = 48
 text = "-"
+fit_content = true
 scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1162015644]
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1162015644]
 shape = SubResource("RectangleShape2D_lu8q3")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
