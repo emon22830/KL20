@@ -40,7 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.09620469, 0.096204765, 0.096204735, 0.4862745)
+color = Color(0.09923185, 0.09923173, 0.09923179, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="PauseOverlay" unique_id=1293723997]
 layout_mode = 1
@@ -63,19 +63,20 @@ theme_override_constants/separation = 0
 
 [node name="Title" type="Label" parent="PauseOverlay/CenterContainer/PausePanel/VBoxContainer" unique_id=484284805]
 layout_mode = 2
+size_flags_horizontal = 4
 offset_transform_enabled = true
-offset_transform_position_ratio = Vector2(0, 1.055)
+offset_transform_position_ratio = Vector2(0, 0.495)
 offset_transform_scale = Vector2(1.405, 1.405)
 theme_override_fonts/font = ExtResource("2_qrgyy")
 theme_override_font_sizes/font_size = 120
-text = "Pause Menu"
+text = "[ Pause Menu ]"
 horizontal_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="PauseOverlay/CenterContainer/PausePanel/VBoxContainer" unique_id=642492989]
 layout_mode = 2
 offset_transform_enabled = true
-offset_transform_position_ratio = Vector2(0, 0.51)
-offset_transform_scale = Vector2(0.525, 0.525)
+offset_transform_position_ratio = Vector2(0, 0.35)
+offset_transform_scale = Vector2(0.735, 0.735)
 theme_override_font_sizes/font_size = 20
 icon = ExtResource("3_dh0hx")
 flat = true
@@ -84,8 +85,8 @@ icon_alignment = 1
 [node name="OptionButton" type="Button" parent="PauseOverlay/CenterContainer/PausePanel/VBoxContainer" unique_id=976970949]
 layout_mode = 2
 offset_transform_enabled = true
-offset_transform_position_ratio = Vector2(0, 0.055)
-offset_transform_scale = Vector2(0.465, 0.465)
+offset_transform_position_ratio = Vector2(0, 0.19)
+offset_transform_scale = Vector2(0.735, 0.735)
 theme_override_font_sizes/font_size = 20
 icon = ExtResource("4_t4fdi")
 flat = true
@@ -94,8 +95,8 @@ icon_alignment = 1
 [node name="MainMenu" type="Button" parent="PauseOverlay/CenterContainer/PausePanel/VBoxContainer" unique_id=1938348470]
 layout_mode = 2
 offset_transform_enabled = true
-offset_transform_position_ratio = Vector2(0, -0.4)
-offset_transform_scale = Vector2(0.5, 0.5)
+offset_transform_position_ratio = Vector2(0, 0.055)
+offset_transform_scale = Vector2(0.735, 0.735)
 theme_override_font_sizes/font_size = 1
 icon = ExtResource("5_kaxfe")
 icon_alignment = 1
