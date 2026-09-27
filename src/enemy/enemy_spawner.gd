@@ -11,30 +11,56 @@ extends Node2D
 @export var spawn_margin_x: float = 200.0
 @export var spawn_margin_y: float = 120.0
 
+# Enemy number (hp) at the start of the game: random between min and max
+@export var start_min_hp: int = 500
+@export var start_max_hp: int = 1500
+
+# After EVERY spawn, min and max get multiplied by this.
+# 1.03 = +3% per enemy. Bigger value = numbers grow faster.
+@export var hp_growth_multiplier: float = 1.03
+
+# ---------------- Runtime values ----------------
+var current_min_hp: int
+var current_max_hp: int
+
 var spawn_timer: Timer
 
 
 func _ready() -> void:
-	#spawn(1)
-	spawn(1000)
+	current_min_hp = start_min_hp
+	current_max_hp = start_max_hp
 
-func spawn(hp : int = 0) -> void:
-	var enemynode = enemy.instantiate()
-	enemynode.position = position
-	enemynode.hp = hp
-	print(enemynode.hp)
-	get_tree().current_scene.add_child.call_deferred(enemynode)
-	
-=======
-	# Timer that calls spawn() again and again
+	# Timer that spawns an enemy again and again (created only ONCE)
 	spawn_timer = Timer.new()
 	spawn_timer.wait_time = spawn_interval
 	spawn_timer.autostart = true
-	spawn_timer.timeout.connect(spawn)
+	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 	add_child(spawn_timer)
 
+	# Spawn the first enemy right away
+	spawn_next_enemy()
 
-func spawn() -> void:
+
+func _on_spawn_timer_timeout() -> void:
+	spawn_next_enemy()
+
+
+func spawn_next_enemy() -> void:
+	spawn(get_random_hp())
+	grow_hp_range()
+
+
+func get_random_hp() -> int:
+	return randi_range(current_min_hp, current_max_hp)
+
+
+func grow_hp_range() -> void:
+	# ceili() rounds up, so small numbers still grow (e.g. 1 * 1.03 -> 2)
+	current_min_hp = ceili(current_min_hp * hp_growth_multiplier)
+	current_max_hp = ceili(current_max_hp * hp_growth_multiplier)
+
+
+func spawn(hp: int = 0) -> void:
 	# Don't spawn if the player doesn't exist (e.g. player died)
 	if not is_instance_valid(GameManager.player):
 		return
@@ -42,7 +68,11 @@ func spawn() -> void:
 	var enemy_node = enemy_scene.instantiate()
 	# Assumes the main scene sits at (0, 0), which is the normal setup
 	enemy_node.position = random_spawn_position()
+	enemy_node.hp = hp
 	get_tree().current_scene.add_child.call_deferred(enemy_node)
+
+	# For testing: shows each enemy's number in the Output panel. Remove later.
+	print("Spawned enemy with hp: ", hp)
 
 
 func random_spawn_position() -> Vector2:
@@ -78,4 +108,3 @@ func get_camera_half_size() -> Vector2:
 		view_size /= camera.zoom
 
 	return view_size / 2.0
->>>>>>> Stashed changes

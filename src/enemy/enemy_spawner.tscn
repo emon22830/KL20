@@ -4,7 +4,3 @@
 
 [node name="EnemySpawner" type="Node2D" unique_id=1802011524]
 script = ExtResource("1_w866p")
-enemy_scene = null
-spawn_interval = null
-spawn_margin_x = null
-spawn_margin_y = null
