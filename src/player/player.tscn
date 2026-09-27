@@ -5,15 +5,19 @@
 [ext_resource type="Script" uid="uid://bujqov2rqyb1g" path="res://src/player/gun.gd" id="3_mf2ua"]
 [ext_resource type="Resource" uid="uid://3fjajar5311x" path="res://src/player/new_resource.tres" id="4_244u8"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0s08s"]
+
 [sub_resource type="Theme" id="Theme_4anbu"]
 default_base_scale = 1.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0s08s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fu6ie"]
 
 [node name="Player" type="CharacterBody2D" unique_id=874143678 groups=["player"]]
 script = ExtResource("1_rxibo")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=370281988]
+visible = false
+shape = SubResource("RectangleShape2D_0s08s")
 
 [node name="Sprite" type="RichTextLabel" parent="." unique_id=527763547]
 anchors_preset = 8
@@ -34,9 +38,6 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Collider" type="CollisionShape2D" parent="." unique_id=370281988]
-shape = SubResource("RectangleShape2D_0s08s")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1528122731]
 zoom = Vector2(0.5, 0.5)

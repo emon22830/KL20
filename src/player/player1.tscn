@@ -13,6 +13,7 @@ default_base_scale = 1.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fu6ie"]
 
 [node name="Player" type="CharacterBody2D" unique_id=874143678 groups=["player"]]
+modulate = Color(0, 1, 0, 1)
 script = ExtResource("1_8m7xy")
 
 [node name="Sprite" type="RichTextLabel" parent="." unique_id=527763547]

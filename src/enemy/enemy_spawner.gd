@@ -7,18 +7,20 @@ extends Node2D
 @export var spawn_margin_x: float = 200.0
 @export var spawn_margin_y: float = 120.0
 
-@export var start_min_hp: int = 500
-@export var start_max_hp: int = 1500
+@export var start_min_hp: int = 1
+@export var start_max_hp: int = 1
 
-@export var hp_growth_multiplier: float = 1.03
+@export var hp_growth_multiplier: float = 2
 
 var current_min_hp: int
 var current_max_hp: int
 
-var spawn_timer: Timer
+var spawn_timer : Timer
 
 
 func _ready() -> void:
+	GameManager.enemy_spawner = self
+	
 	current_min_hp = start_min_hp
 	current_max_hp = start_max_hp
 
@@ -36,8 +38,9 @@ func _on_spawn_timer_timeout() -> void:
 
 
 func spawn_next_enemy() -> void:
-	spawn(1)
-	grow_hp_range()
+	spawn(get_random_hp())
+	#spawn(1)
+	#grow_hp_range()
 
 
 func get_random_hp() -> int:
@@ -45,8 +48,11 @@ func get_random_hp() -> int:
 
 
 func grow_hp_range() -> void:
-	current_min_hp = ceili(current_min_hp * hp_growth_multiplier)
 	current_max_hp = ceili(current_max_hp * hp_growth_multiplier)
+	current_min_hp = ceili(current_max_hp / hp_growth_multiplier / 2)
+	print(current_max_hp)
+	print(current_min_hp)
+	
 
 
 func spawn(hp: int = 0) -> void:

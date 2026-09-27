@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 @export var speed := 300.0
-@export var hp : int = 100
-@export var max_hp : int = 100
+@export var hp : int = 1
+@export var max_hp : int = 1
 @export var exp : int = 0
-@export var max_exp : int = 100
-@export var max_exp_increment : int = 100
+@export var max_exp : int = 1
+@export var max_exp_increment : int = 2
 @export var level : int = 0
 @export var colliding_bodies : Array = []
 @export var bullet_scene : PackedScene = preload("res://src/bullet/bullet.tscn")
@@ -104,13 +104,18 @@ func _on_area_exited(area: Area2D) -> void:
 	colliding_bodies.erase(area)
 
 func add_xp(xp : int) -> void:
+	#print(xp)
+	
 	if hp < max_hp:
 		hp += xp
+		check_hp()
 	
 	if exp < max_exp:
 		exp += xp
 	else:
-		max_exp += max_exp_increment
+		print(max_hp)
+		max_exp = max_exp * max_exp_increment
 		exp = 0
 		level += 1
 		max_hp = max_exp
+		GameManager.enemy_spawner.grow_hp_range()

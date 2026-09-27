@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var hp : int = 0
-var exp : int = 0
+var max_hp : int = 0
 
 @export var xp_orb_scene: PackedScene = preload("res://src/xp_orb/xp_orb.tscn") 
 var is_dead: bool = false 
@@ -18,6 +18,7 @@ func _ready() -> void:
 
 
 func set_hp() -> void:
+	max_hp = hp
 	sprite.text = str(hp)
 	var sprite_size = sprite.get_minimum_size()
 	collider.shape.size = sprite_size
@@ -40,6 +41,7 @@ func die() -> void:
 
 	var orb = xp_orb_scene.instantiate()
 	orb.position = global_position
+	orb.xp_value = max_hp
 	get_tree().current_scene.add_child.call_deferred(orb)
 
 	queue_free()
