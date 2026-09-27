@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://do51jk7lo1o11"]
+
+[ext_resource type="PackedScene" uid="uid://dp2028b27qjuw" path="res://src/player/player.tscn" id="1_3eh75"]
+[ext_resource type="PackedScene" uid="uid://cg1jcmieldema" path="res://src/ui/pause_menu/pause_menu.tscn" id="1_ab7mr"]
+[ext_resource type="Texture2D" uid="uid://spaer7g4v76u" path="res://icon.svg" id="2_3s6yk"]
+[ext_resource type="Script" uid="uid://xj3wnkr7gya7" path="res://src/main/fps_count.gd" id="4_djufw"]
+[ext_resource type="PackedScene" uid="uid://bk6kq1k6wx8hy" path="res://src/enemy/enemy_spawner.tscn" id="5_jkpqq"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mf2ua"]
+blend_mode = 3
+
+[node name="Main" type="Node2D" unique_id=1651082498]
+
+[node name="PauseMenu" parent="." unique_id=820469798 instance=ExtResource("1_ab7mr")]
+
+[node name="Player" parent="." unique_id=874143678 instance=ExtResource("1_3eh75")]
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1047700878]
+material = SubResource("CanvasItemMaterial_mf2ua")
+position = Vector2(-238, 161)
+texture = ExtResource("2_3s6yk")
+
+[node name="FpsCount" type="Label" parent="." unique_id=1894366466]
+offset_left = -357.0
+offset_top = 212.0
+offset_right = -66.0
+offset_bottom = 412.0
+theme_override_font_sizes/font_size = 64
+text = "Fps: "
+script = ExtResource("4_djufw")
+
+[node name="EnemySpawner" parent="." unique_id=1802011524 instance=ExtResource("5_jkpqq")]
+position = Vector2(645, 382)

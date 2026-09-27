@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bvb1t3kxsw1fl"]
+
+[ext_resource type="Script" uid="uid://colox6efp8fvs" path="res://src/global/brightness_manager.gd" id="1_7bi4k"]
+
+[node name="BrightnessManager" type="CanvasLayer" unique_id=1084106128]
+layer = 128
+script = ExtResource("1_7bi4k")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=629523806]
+offset_right = 1148.0
+offset_bottom = 646.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

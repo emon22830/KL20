@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://d05o8woarffm3"]
+
+[ext_resource type="Script" uid="uid://dwiociwmpmhd2" path="res://src/ui/options/options.gd" id="1_jye21"]
+
+[node name="Options" type="Control" unique_id=773503458]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jye21")
+
+[node name="Background" type="ColorRect" parent="." unique_id=131311912]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09803922, 0.09803922, 0.09803922, 0.91764706)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1819772982]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionsPanel" type="PanelContainer" parent="CenterContainer" unique_id=728616613]
+custom_minimum_size = Vector2(400, 500)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/OptionsPanel" unique_id=1974833832]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Title" type="Label" parent="CenterContainer/OptionsPanel/VBoxContainer" unique_id=901957493]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "OPTIONS"
+horizontal_alignment = 1
+
+[node name="WindowRow" type="HBoxContainer" parent="CenterContainer/OptionsPanel/VBoxContainer" unique_id=951048625]
+layout_mode = 2
+
+[node name="WindowLabel" type="Label" parent="CenterContainer/OptionsPanel/VBoxContainer/WindowRow" unique_id=1069595893]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Window Mode"
+
+[node name="WindowOption" type="OptionButton" parent="CenterContainer/OptionsPanel/VBoxContainer/WindowRow" unique_id=721462397]
+custom_minimum_size = Vector2(206, 40)
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+
+[node name="FPSRow" type="HBoxContainer" parent="CenterContainer/OptionsPanel/VBoxContainer" unique_id=1214042614]
+layout_mode = 2
+
+[node name="FPSLabel" type="Label" parent="CenterContainer/OptionsPanel/VBoxContainer/FPSRow" unique_id=13798237]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "FPS"
+
+[node name="FPSOption" type="OptionButton" parent="CenterContainer/OptionsPanel/VBoxContainer/FPSRow" unique_id=26631602]
+custom_minimum_size = Vector2(206, 40)
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "30 fps"
+popup/item_0/id = 0
+popup/item_1/text = "60 fps"
+popup/item_1/id = 1
+popup/item_2/text = "120 fps"
+popup/item_2/id = 2
+popup/item_3/text = "Unlimited"
+popup/item_3/id = 3
+
+[node name="VSyncRow" type="HBoxContainer" parent="CenterContainer/OptionsPanel/VBoxContainer" unique_id=2052810421]
+layout_mode = 2
+
+[node name="VSyncLabel" type="Label" parent="CenterContainer/OptionsPanel/VBoxContainer/VSyncRow" unique_id=777551641]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "V-Sync"
+
+[node name="VSyncCheckBox" type="CheckBox" parent="CenterContainer/OptionsPanel/VBoxContainer/VSyncRow" unique_id=1011467500]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+button_pressed = true
+text = "On"
+
+[node name="BrightnessRow" type="HBoxContainer" parent="CenterContainer/OptionsPanel/VBoxContainer" unique_id=2042586505]
+layout_mode = 2
+
+[node name="BrightnessLabel" type="Label" parent="CenterContainer/OptionsPanel/VBoxContainer/BrightnessRow" unique_id=511507340]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Brightness"
+
+[node name="BrightnessSlider" type="HSlider" parent="CenterContainer/OptionsPanel/VBoxContainer/BrightnessRow" unique_id=1163763834]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 70.0
+
+[node name="MusicTitle" type="Label" parent="CenterContainer/OptionsPanel/VBoxContainer" unique_id=70298358]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "~MUSIC & SOUNDS~"
+horizontal_alignment = 1
+
+[node name="MasterVolumeRow" type="HBoxContainer" parent="CenterContainer/OptionsPanel/VBoxContainer" unique_id=2010637853]
+layout_mode = 2
+
+[node name="MasterVolumeLabel" type="Label" parent="CenterContainer/OptionsPanel/VBoxContainer/MasterVolumeRow" unique_id=1523286865]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Master Volume"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="CenterContainer/OptionsPanel/VBoxContainer/MasterVolumeRow" unique_id=445180200]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 95.0
+
+[node name="MusicVolumeRow" type="HBoxContainer" parent="CenterContainer/OptionsPanel/VBoxContainer" unique_id=302167933]
+layout_mode = 2
+
+[node name="MusicVolumeLabel" type="Label" parent="CenterContainer/OptionsPanel/VBoxContainer/MusicVolumeRow" unique_id=1947533908]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Music Volume"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="CenterContainer/OptionsPanel/VBoxContainer/MusicVolumeRow" unique_id=697062649]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 70.0
+
+[node name="SFXVolumeRow" type="HBoxContainer" parent="CenterContainer/OptionsPanel/VBoxContainer" unique_id=899705037]
+layout_mode = 2
+
+[node name="SFXVolumeLabel" type="Label" parent="CenterContainer/OptionsPanel/VBoxContainer/SFXVolumeRow" unique_id=867361274]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "SFX Volume"
+
+[node name="SFXVolumeSlider" type="HSlider" parent="CenterContainer/OptionsPanel/VBoxContainer/SFXVolumeRow" unique_id=1273599401]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 70.0
+
+[node name="BackButton" type="Button" parent="CenterContainer/OptionsPanel/VBoxContainer" unique_id=1962403730]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Return"

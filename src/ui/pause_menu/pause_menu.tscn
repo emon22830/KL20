@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://cg1jcmieldema"]
+
+[ext_resource type="Script" uid="uid://byewlmuqwydjm" path="res://src/ui/pause_menu/pause_menu.gd" id="1_fsbbv"]
+[ext_resource type="PackedScene" uid="uid://d05o8woarffm3" path="res://src/ui/options/options.tscn" id="2_u4p1g"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=820469798]
+process_mode = 3
+script = ExtResource("1_fsbbv")
+
+[node name="GameUi" type="Control" parent="." unique_id=1274690202]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 648.0
+
+[node name="PauseButton" type="Button" parent="GameUi" unique_id=1450145583]
+layout_mode = 0
+offset_left = 1098.0
+offset_top = 16.0
+offset_right = 1131.0
+offset_bottom = 50.0
+text = "II"
+
+[node name="PauseOverlay" type="Control" parent="." unique_id=1262709487]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="PauseOverlay" unique_id=1617970928]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09620469, 0.096204765, 0.096204735, 0.4862745)
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseOverlay" unique_id=1293723997]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PausePanel" type="PanelContainer" parent="PauseOverlay/CenterContainer" unique_id=1594886911]
+custom_minimum_size = Vector2(350, 250)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseOverlay/CenterContainer/PausePanel" unique_id=2058161339]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="PauseOverlay/CenterContainer/PausePanel/VBoxContainer" unique_id=484284805]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Pause Menu"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseOverlay/CenterContainer/PausePanel/VBoxContainer" unique_id=642492989]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "RESUME"
+
+[node name="OptionButton" type="Button" parent="PauseOverlay/CenterContainer/PausePanel/VBoxContainer" unique_id=976970949]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "OPTIONS"
+
+[node name="MainMenu" type="Button" parent="PauseOverlay/CenterContainer/PausePanel/VBoxContainer" unique_id=1938348470]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "MAIN MENU"
+
+[node name="Options" parent="." unique_id=773503458 instance=ExtResource("2_u4p1g")]
+visible = false
+
+[connection signal="pressed" from="GameUi/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="PauseOverlay/CenterContainer/PausePanel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseOverlay/CenterContainer/PausePanel/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="PauseOverlay/CenterContainer/PausePanel/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

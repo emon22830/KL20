@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cswn8qrwqvlbn"]
+
+[ext_resource type="Script" uid="uid://c648wuhgybkfu" path="res://src/ball/ball_wasd.gd" id="1_wasd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ball"]
+radius = 24.0
+
+[node name="BallWasd" type="Node2D" unique_id=1095896996]
+
+[node name="Ball" type="CharacterBody2D" parent="." unique_id=722312913]
+position = Vector2(576, 324)
+motion_mode = 1
+script = ExtResource("1_wasd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=1075043032]
+shape = SubResource("CircleShape2D_ball")

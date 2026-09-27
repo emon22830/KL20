@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c1mfh23ip4awj"]
+
+[ext_resource type="Script" uid="uid://x03djpo6dskx" path="res://src/ball/ball_mouse.gd" id="1_mouse"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ball"]
+radius = 24.0
+
+[node name="BallMouse" type="Node2D" unique_id=158727682]
+
+[node name="Ball" type="CharacterBody2D" parent="." unique_id=924606547]
+position = Vector2(576, 324)
+motion_mode = 1
+script = ExtResource("1_mouse")
+color = Color(0.3, 0.6, 0.95, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=1406998351]
+shape = SubResource("CircleShape2D_ball")
