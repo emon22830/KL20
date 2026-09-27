@@ -46,7 +46,8 @@ func _on_spawn_timer_timeout() -> void:
 
 
 func spawn_next_enemy() -> void:
-	spawn(get_random_hp())
+	#spawn(get_random_hp())
+	spawn(1)
 	grow_hp_range()
 
 

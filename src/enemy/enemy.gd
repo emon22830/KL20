@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 var hp : int = 0
 
+@export var xp_orb_scene: PackedScene = preload("res://src/xp_orb/xp_orb.tscn") # NEW
+var is_dead: bool = false # NEW
+
 @onready var sprite := $Sprite
 @onready var collider := $Collider
 
@@ -26,10 +29,22 @@ func on_take_damage(amount : int) -> void:
 func check_hp() -> void:
 	print("enemy checking hp :" + str(hp))
 	if hp <= 0:
-		self.queue_free()
+		die() # NEW (replaces self.queue_free())
 		return
 	
 	set_hp()
+
+func die() -> void: # NEW
+	# Stops the enemy from dying twice (and dropping 2 orbs)
+	if is_dead:
+		return
+	is_dead = true
+
+	var orb = xp_orb_scene.instantiate()
+	orb.position = global_position
+	get_tree().current_scene.add_child.call_deferred(orb)
+
+	queue_free()
 
 func _process(delta: float) -> void:
 	var direction = GameManager.player.position - position 
