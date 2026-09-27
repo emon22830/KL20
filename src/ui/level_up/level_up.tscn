@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bab05l70hxfog"]
+
+[ext_resource type="Script" uid="uid://bhnchs567scn5" path="res://src/ui/level_up/level_up.gd" id="1_sgb4v"]
+
+[node name="LevelUp" type="CanvasLayer" unique_id=781504421]
+process_mode = 3
+script = ExtResource("1_sgb4v")
+
+[node name="Ui" type="Control" parent="." unique_id=941333929]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Ui" unique_id=923274019]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08627451, 0.08627451, 0.08627451, 0.40784314)
+
+[node name="Title" type="Label" parent="Ui" unique_id=389810962]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = -44.0
+offset_right = 151.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "LEVEL UP!"

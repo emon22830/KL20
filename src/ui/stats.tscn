@@ -14,18 +14,24 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="Ui" unique_id=1452218540]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="StatsPanel" type="PanelContainer" parent="Ui/CenterContainer" unique_id=1417456017]
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Ui/CenterContainer/StatsPanel" unique_id=1667287422]
 layout_mode = 2
+alignment = 1
 
 [node name="Title" type="Label" parent="Ui/CenterContainer/StatsPanel/VBoxContainer" unique_id=1548235218]
 layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "STATS"
 
 [node name="LevelLabel" type="Label" parent="Ui/CenterContainer/StatsPanel/VBoxContainer" unique_id=879964803]
 layout_mode = 2
