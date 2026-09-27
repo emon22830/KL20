@@ -3,11 +3,9 @@
 [ext_resource type="Script" uid="uid://xiumtq53trhy" path="res://src/mainmenu/main_menu.gd" id="1_pfhkm"]
 [ext_resource type="PackedScene" uid="uid://d05o8woarffm3" path="res://src/ui/options/options.tscn" id="2_u17xg"]
 [ext_resource type="Script" uid="uid://c84xp4etsr7oo" path="res://src/ui/rainbowCanvasItem.gd" id="3_7seqg"]
-[ext_resource type="Texture2D" uid="uid://c2uv1y42cdt3d" path="res://asset/ascii-art/play.png" id="3_p1ij0"]
 [ext_resource type="Texture2D" uid="uid://blho3d1tp76s0" path="res://asset/test/final1.png" id="3_tggik"]
 [ext_resource type="Script" uid="uid://dkpp74oeamh8q" path="res://src/ui/button_animation.gd" id="4_7seqg"]
-[ext_resource type="Texture2D" uid="uid://b35eow7vagmf" path="res://asset/ascii-art/options.png" id="4_nqbv2"]
-[ext_resource type="Texture2D" uid="uid://b46pd2iwe7rpl" path="res://asset/ascii-art/exit.png" id="5_7seqg"]
+[ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="4_p1ij0"]
 
 [node name="Control" type="Control" unique_id=508173215]
 process_mode = 3
@@ -27,44 +25,44 @@ script = ExtResource("3_7seqg")
 
 [node name="Play" type="Button" parent="." unique_id=1761478992]
 layout_mode = 0
-offset_left = 708.0
-offset_top = 382.0
-offset_right = 1225.0
-offset_bottom = 647.0
+offset_left = 797.0
+offset_top = 435.0
+offset_right = 1102.0
+offset_bottom = 582.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-offset_transform_enabled = true
 offset_transform_scale = Vector2(0.755, 0.755)
-icon = ExtResource("3_p1ij0")
-flat = true
+theme_override_fonts/font = ExtResource("4_p1ij0")
+theme_override_font_sizes/font_size = 64
+text = "Play"
 script = ExtResource("4_7seqg")
 
 [node name="Options" type="Button" parent="." unique_id=649768266]
 layout_mode = 0
-offset_left = 591.0
-offset_top = 597.0
-offset_right = 1354.0
-offset_bottom = 862.0
+offset_left = 763.0
+offset_top = 623.0
+offset_right = 1119.0
+offset_bottom = 817.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-offset_transform_enabled = true
 offset_transform_scale = Vector2(0.755, 0.755)
-icon = ExtResource("4_nqbv2")
-flat = true
+theme_override_fonts/font = ExtResource("4_p1ij0")
+theme_override_font_sizes/font_size = 64
+text = "Options"
 script = ExtResource("4_7seqg")
 
 [node name="Exit" type="Button" parent="." unique_id=576317864]
 layout_mode = 0
-offset_left = 741.0
-offset_top = 830.0
-offset_right = 1205.0
-offset_bottom = 1063.0
+offset_left = 754.0
+offset_top = 881.0
+offset_right = 1137.0
+offset_bottom = 1007.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-offset_transform_enabled = true
 offset_transform_scale = Vector2(0.755, 0.755)
-icon = ExtResource("5_7seqg")
-flat = true
+theme_override_fonts/font = ExtResource("4_p1ij0")
+theme_override_font_sizes/font_size = 64
+text = "Exit"
 icon_alignment = 1
 script = ExtResource("4_7seqg")
 

@@ -3,10 +3,8 @@
 [ext_resource type="Script" uid="uid://byewlmuqwydjm" path="res://src/ui/pause_menu/pause_menu.gd" id="1_fsbbv"]
 [ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="2_qrgyy"]
 [ext_resource type="PackedScene" uid="uid://d05o8woarffm3" path="res://src/ui/options/options.tscn" id="2_u4p1g"]
-[ext_resource type="Texture2D" uid="uid://b76ko743uc4p7" path="res://asset/ascii-art/resume.png" id="3_dh0hx"]
+[ext_resource type="Script" uid="uid://dhb7gb0g2fdu8" path="res://src/ui/pause_menu/title.gd" id="3_peth0"]
 [ext_resource type="Script" uid="uid://dkpp74oeamh8q" path="res://src/ui/button_animation.gd" id="4_dh0hx"]
-[ext_resource type="Texture2D" uid="uid://b35eow7vagmf" path="res://asset/ascii-art/options.png" id="4_t4fdi"]
-[ext_resource type="Texture2D" uid="uid://b1nh2h5r542di" path="res://asset/ascii-art/main menu.png" id="5_kaxfe"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=820469798]
 process_mode = 3
@@ -29,7 +27,6 @@ offset_bottom = 59.0
 text = "II"
 
 [node name="PauseOverlay" type="Control" parent="." unique_id=1262709487]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,43 +65,41 @@ theme_override_constants/separation = 0
 [node name="Title" type="Label" parent="PauseOverlay/CenterContainer/PausePanel/VBoxContainer" unique_id=484284805]
 layout_mode = 2
 size_flags_horizontal = 4
-offset_transform_enabled = true
 offset_transform_position_ratio = Vector2(0, 0.495)
 offset_transform_scale = Vector2(1.405, 1.405)
 theme_override_fonts/font = ExtResource("2_qrgyy")
 theme_override_font_sizes/font_size = 120
 text = "[ Pause Menu ]"
 horizontal_alignment = 1
+script = ExtResource("3_peth0")
 
 [node name="ResumeButton" type="Button" parent="PauseOverlay/CenterContainer/PausePanel/VBoxContainer" unique_id=642492989]
 layout_mode = 2
-offset_transform_enabled = true
 offset_transform_position_ratio = Vector2(0, 0.35)
 offset_transform_scale = Vector2(0.735, 0.735)
-theme_override_font_sizes/font_size = 20
-icon = ExtResource("3_dh0hx")
-flat = true
+theme_override_fonts/font = ExtResource("2_qrgyy")
+theme_override_font_sizes/font_size = 32
+text = "Resume"
 icon_alignment = 1
 script = ExtResource("4_dh0hx")
 
 [node name="OptionButton" type="Button" parent="PauseOverlay/CenterContainer/PausePanel/VBoxContainer" unique_id=976970949]
 layout_mode = 2
-offset_transform_enabled = true
 offset_transform_position_ratio = Vector2(0, 0.19)
 offset_transform_scale = Vector2(0.735, 0.735)
-theme_override_font_sizes/font_size = 20
-icon = ExtResource("4_t4fdi")
-flat = true
+theme_override_fonts/font = ExtResource("2_qrgyy")
+theme_override_font_sizes/font_size = 32
+text = "Options"
 icon_alignment = 1
 script = ExtResource("4_dh0hx")
 
 [node name="MainMenu" type="Button" parent="PauseOverlay/CenterContainer/PausePanel/VBoxContainer" unique_id=1938348470]
 layout_mode = 2
-offset_transform_enabled = true
 offset_transform_position_ratio = Vector2(0, 0.055)
 offset_transform_scale = Vector2(0.735, 0.735)
-theme_override_font_sizes/font_size = 1
-icon = ExtResource("5_kaxfe")
+theme_override_fonts/font = ExtResource("2_qrgyy")
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
 icon_alignment = 1
 script = ExtResource("4_dh0hx")
 
