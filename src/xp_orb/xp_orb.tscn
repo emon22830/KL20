@@ -1,16 +1,42 @@
 [gd_scene format=3 uid="uid://wmefyei321l4"]
 
 [ext_resource type="Script" uid="uid://db3p804243fwr" path="res://src/xp_orb/xp_orb.gd" id="1_uj1wp"]
-[ext_resource type="Texture2D" uid="uid://spaer7g4v76u" path="res://icon.svg" id="2_60xta"]
+[ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="2_uj1wp"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
+[sub_resource type="Theme" id="Theme_jv1ba"]
+default_base_scale = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ieep"]
+radius = 18.0
+height = 52.0
 
 [node name="XpOrb" type="Area2D" unique_id=1746670490]
 script = ExtResource("1_uj1wp")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=6345659]
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("2_60xta")
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=895254107]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -49.0
+offset_right = 24.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jv1ba")
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("2_uj1wp")
+theme_override_font_sizes/normal_font_size = 80
+text = "@"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=24225190]
-shape = SubResource("CircleShape2D_xrivr")
+shape = SubResource("CapsuleShape2D_5ieep")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

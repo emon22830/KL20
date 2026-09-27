@@ -33,9 +33,9 @@ func set_gun_type(new_stats: GunStats) -> void:
 func _physics_process(delta: float) -> void:
 	cooldown_left -= delta
 
-	#if Input.is_action_pressed("shoot") and cooldown_left <= 0.0:
-		#shoot()
-		#cooldown_left = 1.0 / fire_rate
+	if Input.is_action_pressed("shoot") and cooldown_left <= 0.0:
+		shoot()
+		cooldown_left = 1.0 / fire_rate
 
 
 func shoot() -> void:

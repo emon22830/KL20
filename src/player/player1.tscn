@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://dp2028b27qjuw"]
+[gd_scene format=3 uid="uid://dhi1wxnw8hs5y"]
 
-[ext_resource type="Script" uid="uid://d2g138ce0u11w" path="res://src/player/player.gd" id="1_rxibo"]
-[ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="2_rxibo"]
-[ext_resource type="Script" uid="uid://bujqov2rqyb1g" path="res://src/player/gun.gd" id="3_mf2ua"]
-[ext_resource type="Resource" uid="uid://3fjajar5311x" path="res://src/player/new_resource.tres" id="4_244u8"]
+[ext_resource type="Script" uid="uid://brmohi13ao78p" path="res://src/player/player1.gd" id="1_8m7xy"]
+[ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="2_a781h"]
+[ext_resource type="Script" uid="uid://bujqov2rqyb1g" path="res://src/player/gun.gd" id="3_gtf5j"]
+[ext_resource type="Resource" uid="uid://3fjajar5311x" path="res://src/player/new_resource.tres" id="4_srper"]
 
 [sub_resource type="Theme" id="Theme_4anbu"]
 default_base_scale = 1.0
@@ -13,7 +13,7 @@ default_base_scale = 1.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fu6ie"]
 
 [node name="Player" type="CharacterBody2D" unique_id=874143678 groups=["player"]]
-script = ExtResource("1_rxibo")
+script = ExtResource("1_8m7xy")
 
 [node name="Sprite" type="RichTextLabel" parent="." unique_id=527763547]
 anchors_preset = 8
@@ -28,7 +28,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_4anbu")
-theme_override_fonts/normal_font = ExtResource("2_rxibo")
+theme_override_fonts/normal_font = ExtResource("2_a781h")
 theme_override_font_sizes/normal_font_size = 160
 fit_content = true
 autowrap_mode = 0
@@ -50,8 +50,8 @@ collision_mask = 5
 shape = SubResource("RectangleShape2D_fu6ie")
 
 [node name="gun" type="Node2D" parent="." unique_id=475643059]
-script = ExtResource("3_mf2ua")
-starting_stats = ExtResource("4_244u8")
+script = ExtResource("3_gtf5j")
+starting_stats = ExtResource("4_srper")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_area_entered"]
 [connection signal="area_exited" from="Hitbox" to="." method="_on_area_exited"]

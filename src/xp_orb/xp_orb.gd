@@ -3,7 +3,7 @@ extends Area2D
 @export var xp_value: int = 1
 
 
-@export var magnet_range: float = 150.0
+@export var magnet_range: float = 600.0
 
 @export var acceleration: float = 900.0
 
@@ -13,7 +13,7 @@ var is_collected: bool = false
 
 
 func _ready() -> void:
-	body_entered.connect(_on_body_entered)
+	pass
 
 
 func _physics_process(delta: float) -> void:
@@ -29,12 +29,6 @@ func _physics_process(delta: float) -> void:
 		current_speed += acceleration * delta
 		global_position = global_position.move_toward(player_pos, current_speed * delta)
 
-
-func _on_body_entered(body: Node2D) -> void:
-	if body == GameManager.player:
-		collect()
-
-
 func collect() -> void:
 	if is_collected:
 		return
@@ -43,4 +37,9 @@ func collect() -> void:
 	if GameManager.player.has_method("add_xp"):
 		GameManager.player.add_xp(xp_value)
 
-	queue_free()
+	self.queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		collect()

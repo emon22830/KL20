@@ -58,8 +58,6 @@ func spawn(hp: int = 0) -> void:
 	enemy_node.hp = hp
 	get_tree().current_scene.add_child.call_deferred(enemy_node)
 
-	print("Spawned enemy with hp: ", hp)
-
 
 func random_spawn_position() -> Vector2:
 	var player_pos: Vector2 = GameManager.player.global_position

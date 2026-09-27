@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var hp : int = 0
+var exp : int = 0
 
 @export var xp_orb_scene: PackedScene = preload("res://src/xp_orb/xp_orb.tscn") 
 var is_dead: bool = false 
@@ -26,7 +27,6 @@ func on_take_damage(amount : int) -> void:
 	check_hp()
 
 func check_hp() -> void:
-	print("enemy checking hp :" + str(hp))
 	if hp <= 0:
 		die()
 		return
