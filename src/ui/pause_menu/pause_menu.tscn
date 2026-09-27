@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://cg1jcmieldema"]
 
 [ext_resource type="Script" uid="uid://byewlmuqwydjm" path="res://src/ui/pause_menu/pause_menu.gd" id="1_fsbbv"]
+[ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="2_qrgyy"]
 [ext_resource type="PackedScene" uid="uid://d05o8woarffm3" path="res://src/ui/options/options.tscn" id="2_u4p1g"]
+[ext_resource type="Texture2D" uid="uid://b76ko743uc4p7" path="res://asset/ascii-art/resume.png" id="3_dh0hx"]
+[ext_resource type="Texture2D" uid="uid://b35eow7vagmf" path="res://asset/ascii-art/options.png" id="4_t4fdi"]
+[ext_resource type="Texture2D" uid="uid://b1nh2h5r542di" path="res://asset/ascii-art/main menu.png" id="5_kaxfe"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=820469798]
 process_mode = 3
@@ -22,7 +26,6 @@ offset_bottom = 50.0
 text = "II"
 
 [node name="PauseOverlay" type="Control" parent="." unique_id=1262709487]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,28 +56,49 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseOverlay/CenterContainer/PausePanel" unique_id=2058161339]
 layout_mode = 2
-theme_override_constants/separation = 12
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, -0.075)
+offset_transform_scale = Vector2(1.17, 1.17)
+theme_override_constants/separation = 0
 
 [node name="Title" type="Label" parent="PauseOverlay/CenterContainer/PausePanel/VBoxContainer" unique_id=484284805]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, 1.055)
+offset_transform_scale = Vector2(1.405, 1.405)
+theme_override_fonts/font = ExtResource("2_qrgyy")
+theme_override_font_sizes/font_size = 120
 text = "Pause Menu"
 horizontal_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="PauseOverlay/CenterContainer/PausePanel/VBoxContainer" unique_id=642492989]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, 0.51)
+offset_transform_scale = Vector2(0.525, 0.525)
 theme_override_font_sizes/font_size = 20
-text = "RESUME"
+icon = ExtResource("3_dh0hx")
+flat = true
+icon_alignment = 1
 
 [node name="OptionButton" type="Button" parent="PauseOverlay/CenterContainer/PausePanel/VBoxContainer" unique_id=976970949]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, 0.055)
+offset_transform_scale = Vector2(0.465, 0.465)
 theme_override_font_sizes/font_size = 20
-text = "OPTIONS"
+icon = ExtResource("4_t4fdi")
+flat = true
+icon_alignment = 1
 
 [node name="MainMenu" type="Button" parent="PauseOverlay/CenterContainer/PausePanel/VBoxContainer" unique_id=1938348470]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "MAIN MENU"
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, -0.4)
+offset_transform_scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 1
+icon = ExtResource("5_kaxfe")
+icon_alignment = 1
 
 [node name="Options" parent="." unique_id=773503458 instance=ExtResource("2_u4p1g")]
 visible = false

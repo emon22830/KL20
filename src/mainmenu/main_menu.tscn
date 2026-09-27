@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://xiumtq53trhy" path="res://src/mainmenu/main_menu.gd" id="1_pfhkm"]
 [ext_resource type="PackedScene" uid="uid://d05o8woarffm3" path="res://src/ui/options/options.tscn" id="2_u17xg"]
+[ext_resource type="Texture2D" uid="uid://c2uv1y42cdt3d" path="res://asset/ascii-art/play.png" id="3_p1ij0"]
+[ext_resource type="Texture2D" uid="uid://blho3d1tp76s0" path="res://asset/test/final1.png" id="3_tggik"]
+[ext_resource type="Texture2D" uid="uid://b35eow7vagmf" path="res://asset/ascii-art/options.png" id="4_nqbv2"]
+[ext_resource type="Texture2D" uid="uid://b46pd2iwe7rpl" path="res://asset/ascii-art/exit.png" id="5_7seqg"]
 
 [node name="Control" type="Control" unique_id=508173215]
 process_mode = 3
@@ -13,44 +17,54 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pfhkm")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1910532825]
-layout_mode = 0
-offset_left = 491.0
-offset_top = 116.0
-offset_right = 634.0
-offset_bottom = 155.0
-text = "MAIN MENU"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="MainTitle" type="Sprite2D" parent="." unique_id=200785849]
+position = Vector2(947, 213)
+texture = ExtResource("3_tggik")
 
 [node name="Play" type="Button" parent="." unique_id=1761478992]
 layout_mode = 0
-offset_left = 544.0
-offset_top = 283.0
-offset_right = 591.0
-offset_bottom = 314.0
-text = "PLAY"
+offset_left = 708.0
+offset_top = 382.0
+offset_right = 1225.0
+offset_bottom = 647.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.755, 0.755)
+icon = ExtResource("3_p1ij0")
+flat = true
 
 [node name="Options" type="Button" parent="." unique_id=649768266]
 layout_mode = 0
-offset_left = 527.0
-offset_top = 372.0
-offset_right = 606.0
-offset_bottom = 403.0
-text = "OPTIONS"
+offset_left = 591.0
+offset_top = 597.0
+offset_right = 1354.0
+offset_bottom = 862.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.755, 0.755)
+icon = ExtResource("4_nqbv2")
+flat = true
 
 [node name="Exit" type="Button" parent="." unique_id=576317864]
 layout_mode = 0
-offset_left = 553.0
-offset_top = 459.0
-offset_right = 584.0
-offset_bottom = 490.0
-text = "EXIT
-"
+offset_left = 741.0
+offset_top = 830.0
+offset_right = 1205.0
+offset_bottom = 1063.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.755, 0.755)
+icon = ExtResource("5_7seqg")
+flat = true
+icon_alignment = 1
 
 [node name="OptionsMenu" parent="." unique_id=773503458 instance=ExtResource("2_u17xg")]
 visible = false
-layout_mode = 1
+layout_mode = 0
+anchors_preset = 0
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
