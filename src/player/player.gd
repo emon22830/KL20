@@ -9,6 +9,8 @@ extends CharacterBody2D
 
 @onready var sprite := $Sprite
 @onready var collider := $Collider
+@onready var hitbox := $Hitbox
+@onready var hitbox_collider := $Hitbox/Collider
 
 
 var contacting_enemy : bool = false
@@ -26,6 +28,7 @@ func set_hp() -> void:
 	sprite.text = str(hp)
 	var sprite_size = sprite.get_minimum_size()
 	collider.shape.size = sprite_size
+	hitbox_collider.shape.size = sprite_size
 
 func _physics_process(_delta):
 	var direction = Vector2.ZERO
@@ -67,7 +70,7 @@ func check_hp() -> void:
 	
 	set_hp()
 
-func on_take_damage(amount : float) -> void:
+func on_take_damage(amount : int) -> void:
 	#if is_invincible:
 		#return
 	

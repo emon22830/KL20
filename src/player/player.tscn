@@ -42,12 +42,13 @@ zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1211194296]
+[node name="Hitbox" type="Area2D" parent="." unique_id=1211194296]
+collision_mask = 5
 
-[node name="Collider" type="CollisionShape2D" parent="Area2D" unique_id=824898735]
+[node name="Collider" type="CollisionShape2D" parent="Hitbox" unique_id=824898735]
 shape = SubResource("RectangleShape2D_fu6ie")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_exited"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_area_entered"]
+[connection signal="area_exited" from="Hitbox" to="." method="_on_area_exited"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_body_exited"]

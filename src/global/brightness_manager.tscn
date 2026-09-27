@@ -7,7 +7,7 @@ layer = 128
 script = ExtResource("1_7bi4k")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=629523806]
-offset_right = 1148.0
-offset_bottom = 646.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)

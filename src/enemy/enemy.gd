@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 var hp : int = 0
 
@@ -19,7 +19,7 @@ func set_hp() -> void:
 	collider.shape.size = sprite_size
 	#collider.position = sprite.position / 2
 
-func on_take_damage(amount : float) -> void:
+func on_take_damage(amount : int) -> void:
 	hp -= amount
 	check_hp()
 
@@ -33,6 +33,7 @@ func check_hp() -> void:
 
 func _process(delta: float) -> void:
 	var direction = GameManager.player.position - position 
-	position += direction.normalized() * 2
-	#on_take_damage(10)
+	velocity = direction.normalized() * 200
+	move_and_slide()
+	#on_take_damage(1)
 	pass

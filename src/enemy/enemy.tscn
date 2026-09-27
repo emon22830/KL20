@@ -9,7 +9,9 @@ size = Vector2(100, 100)
 [sub_resource type="Theme" id="Theme_6j2al"]
 default_base_scale = 1.0
 
-[node name="Area2D" type="Area2D" unique_id=30323609 groups=["enemy"]]
+[node name="Enemy" type="CharacterBody2D" unique_id=885116784 groups=["enemy"]]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_ig63i")
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=256154100]
@@ -38,5 +40,3 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
