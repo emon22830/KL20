@@ -2,9 +2,13 @@ extends CharacterBody2D
 @export var speed := 300.0
 @export var hp : float = 3
 @export var colliding_bodies : Array = []
+@export var bullet_scene : PackedScene = preload("res://src/bullet/bullet.tscn")
+@export var fire_cooldown := 0.2
+@export var muzzle_offset := Vector2(0, -66)
 
 var contacting_enemy : bool = false
 var is_invincible: bool = false
+var can_shoot : bool = true
 
 func _ready() -> void:
 	SignalBus.take_damage.connect(on_take_damage)
@@ -21,6 +25,18 @@ func _physics_process(_delta):
 	velocity = direction * speed
 	
 	move_and_slide()
+	
+	if Input.is_action_pressed("shoot") and can_shoot:
+		shoot()
+
+func shoot() -> void:
+	can_shoot = false
+	get_tree().create_timer(fire_cooldown).timeout.connect(func(): can_shoot = true)
+	
+	var bullet = bullet_scene.instantiate()
+	bullet.global_position = global_position + muzzle_offset
+	bullet.direction = (get_global_mouse_position() - bullet.global_position).normalized()
+	get_tree().current_scene.add_child(bullet)
 
 
 

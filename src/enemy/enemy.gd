@@ -34,5 +34,5 @@ func check_hp() -> void:
 func _process(delta: float) -> void:
 	var direction = GameManager.player.position - position 
 	position += direction.normalized() * 2
-	on_take_damage(10)
+	#on_take_damage(10)
 	pass

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cn4iu860qd0rc"]
 
 [ext_resource type="Script" uid="uid://bfijpwf3e3ui8" path="res://src/enemy/enemy.gd" id="1_ig63i"]
+[ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="2_ig63i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ieep"]
 size = Vector2(100, 100)
@@ -28,6 +29,9 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_6j2al")
+theme_override_colors/font_outline_color = Color(0.99999994, 0.174173, 0.12721539, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("2_ig63i")
 theme_override_font_sizes/normal_font_size = 160
 text = "10000000000"
 fit_content = true

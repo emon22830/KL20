@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dnda3rdulsiur"]
+
+[ext_resource type="Script" uid="uid://c1iqqmhq0shkj" path="res://src/bullet/bullet.gd" id="1_bullet"]
+[ext_resource type="FontFile" path="res://asset/font/AvenuePixelSoft-Stroke-Regular.otf" id="2_rdh5j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bullet"]
+radius = 24.0
+
+[node name="Bullet" type="Area2D" unique_id=935828773]
+collision_layer = 0
+script = ExtResource("1_bullet")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1340836668]
+offset_left = -100.0
+offset_top = -30.0
+offset_right = 100.0
+offset_bottom = 30.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_rdh5j")
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
+text = "-"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1162015644]
+shape = SubResource("CircleShape2D_bullet")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
