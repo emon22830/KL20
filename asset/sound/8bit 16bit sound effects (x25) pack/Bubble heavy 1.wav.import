@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cf3g2ov4rry66"
+path="res://.godot/imported/Bubble heavy 1.wav-fc5b2e6b683d1bd641455e9d39b13860.sample"
+
+[deps]
+
+source_file="res://asset/sound/8bit 16bit sound effects (x25) pack/Bubble heavy 1.wav"
+dest_files=["res://.godot/imported/Bubble heavy 1.wav-fc5b2e6b683d1bd641455e9d39b13860.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

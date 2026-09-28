@@ -117,6 +117,23 @@ func set_punch(value: Vector2, target: Control) -> void:
 	target.scale = value
 
 
+func twitch(target: Control, degrees: float = 12.0, duration: float = 0.2) -> void:
+	if not is_instance_valid(target):
+		return
+
+	kill_meta_tween(target, "juice_twitch_tween")
+	var tween := target.create_tween()
+	tween.tween_method(set_twitch.bind(target, degrees), 1.0, 0.0, duration)
+	target.set_meta("juice_twitch_tween", tween)
+
+
+func set_twitch(strength: float, target: Control, degrees: float) -> void:
+	if not is_instance_valid(target):
+		return
+	target.pivot_offset = target.size / 2.0
+	target.rotation = deg_to_rad(degrees) * strength * sin(strength * 40.0)
+
+
 func kill_meta_tween(target: Object, key: String) -> void:
 	if target.has_meta(key):
 		var old: Tween = target.get_meta(key)
@@ -133,6 +150,7 @@ func death_pop(owner_node: Node2D, sprite: Control, grow: float = 2.5, duration:
 	holder.z_index = owner_node.z_index
 	var copy: Control = sprite.duplicate()
 	copy.scale = Vector2.ONE
+	copy.rotation = 0.0
 	copy.modulate = Color(3, 3, 3)
 	holder.add_child(copy)
 	get_tree().current_scene.add_child(holder)
