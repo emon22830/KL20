@@ -1,6 +1,11 @@
 extends Node2D
 
-@export var enemy_scene: PackedScene = preload("res://src/enemy/enemy.tscn")
+#@export var enemy_scene: PackedScene = preload("res://src/enemy/enemy.tscn")
+#@export var enemy_scene1: PackedScene = preload("res://src/enemy/enemy_dash.tscn")
+@export var enemy_scenes: Array[PackedScene] = [
+	preload("res://src/enemy/enemy.tscn"),
+	preload("res://src/enemy/enemy_dash.tscn"),
+]
 
 @export var spawn_interval: float = 1.0
 
@@ -62,16 +67,19 @@ func spawn(hp: int = 0) -> void:
 		return
 	
 	if GameManager.enemy_list.size() >= GameManager.enemy_max_count:
-		#print(GameManager.enemy_list.size())
+		print(GameManager.enemy_list.size())
 		#print(GameManager.enemy_max_count)
 		return
-
-	var enemy_node = enemy_scene.instantiate()
+	
+	
+	
+	var enemy_node = enemy_scenes.pick_random().instantiate()
 	enemy_node.position = random_spawn_position()
 	enemy_node.hp = hp
 	enemy_node.max_hp = hp
 	get_tree().current_scene.add_child.call_deferred(enemy_node)
 	GameManager.enemy_list.append(enemy_node)
+	print(enemy_node)
 
 
 func random_spawn_position() -> Vector2:
