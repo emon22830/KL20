@@ -85,7 +85,6 @@ anchor_bottom = 1.0
 offset_top = -29.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("13_hc2u7")
 
@@ -115,7 +114,7 @@ offset_right = 1023.0
 offset_bottom = -206.0
 theme_override_fonts/normal_font = ExtResource("6_jqarl")
 theme_override_font_sizes/normal_font_size = 62
-text = "[ Dash ] (cd 2s) later change
+text = "[ Dash ] (cd 2s)
 
 	  Shift
 
