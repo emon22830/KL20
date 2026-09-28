@@ -1,9 +1,10 @@
-extends RigidBody2D
+extends CharacterBody2D
 
-var hp : int = 0
-var max_hp : int = 0
-
+@export var hp : int = 0
+@export var max_hp : int = 0
+@export var is_hurt : bool = false
 @export var xp_orb_scene: PackedScene = preload("res://src/xp_orb/xp_orb.tscn") 
+
 var is_dead: bool = false 
 
 @onready var sprite := $Sprite
@@ -30,6 +31,8 @@ func on_take_damage(amount : int) -> void:
 		Juice.punch_scale(sprite, 0.2)
 		Juice.shake(0.08)
 	check_hp()
+	is_hurt = true
+	get_tree().create_timer(1).timeout.connect(func(): is_hurt = false)
 
 func check_hp() -> void:
 	if hp <= 0:
@@ -54,26 +57,13 @@ func die() -> void:
 	Juice.hit_stop(0.04)
 	Juice.bloom_pulse(0.3)
 
+
 	queue_free()
 
-#func _process(delta: float) -> void:
-	#var direction = GameManager.player.position - position 
-	#velocity = direction.normalized() * 200
-	#move_and_slide()
-	#pass
-
-func _physics_process(delta: float) -> void:
-	
-	if abs(linear_velocity) > Vector2(0.01, 0.01) : 
-		linear_velocity += -linear_velocity / 10
-		return
-	
-	#if abs(linear_velocity) < Vector2(0.01, 0.01):
-		#print("trying set 0 somehow")
-		#linear_velocity = Vector2.ZERO
-	
+func _process(delta: float) -> void:
 	var direction = GameManager.player.position - position 
-	var random_offset = randf_range(-0.3, 0.3)   # radians, adjust spread as needed
-	direction = direction.rotated(random_offset)
-	direction = direction.normalized()
-	apply_central_impulse(direction * 3000)
+	if is_hurt:
+		velocity = direction.normalized() * 100
+	else:
+		velocity = direction.normalized() * 500
+	move_and_slide()

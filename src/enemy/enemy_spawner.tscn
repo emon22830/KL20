@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://bk6kq1k6wx8hy"]
 
 [ext_resource type="Script" uid="uid://jwqwojr3my1a" path="res://src/enemy/enemy_spawner.gd" id="1_w866p"]
+[ext_resource type="PackedScene" uid="uid://cn4iu860qd0rc" path="res://src/enemy/enemy.tscn" id="2_1x20r"]
 [ext_resource type="PackedScene" uid="uid://db3jlp6seswiq" path="res://src/enemy/enemy_dash.tscn" id="2_i46x5"]
+[ext_resource type="PackedScene" uid="uid://dsrf2wcnlxsas" path="res://src/enemy/enemy_run.tscn" id="4_45y2x"]
+[ext_resource type="PackedScene" uid="uid://cobdncslc0vpv" path="res://src/enemy/enemy_mash.tscn" id="5_45y2x"]
 
 [node name="EnemySpawner" type="Node2D" unique_id=1802011524]
 script = ExtResource("1_w866p")
-enemy_scene = ExtResource("2_i46x5")
+enemy_scenes = Array[PackedScene]([ExtResource("2_1x20r"), ExtResource("2_i46x5"), ExtResource("4_45y2x"), ExtResource("5_45y2x")])

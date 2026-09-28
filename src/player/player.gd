@@ -45,16 +45,18 @@ func _physics_process(_delta):
 	var direction := Vector2.ZERO
 	
 	if dashing : 
-		temp_burst -= 50
-		print(temp_burst)
+		temp_burst = max(temp_burst - 50, 0)
 	
-	if temp_burst <= 0 : 
-		dashing = false
-		temp_burst = 0
+	#if temp_burst <= 0 : 
+		#dashing = false
+		#temp_burst = 0
+	
+	
 	
 	if Input.is_action_just_pressed("dash") && !dashing:
 		temp_burst = burst
 		dashing = true
+		get_tree().create_timer(2).timeout.connect(func(): dashing = false)
 	
 	direction.x = Input.get_axis("move_left", "move_right")
 	direction.y = Input.get_axis("move_up", "move_down")
@@ -91,8 +93,9 @@ func check_contact() -> void:
 
 func check_hp() -> void:
 	if hp <= 0:
-			get_tree().change_scene_to_file("res://src/gameover/game_over.tscn")
-			return
+		GameManager.enemy_list.clear()
+		get_tree().change_scene_to_file("res://src/gameover/game_over.tscn")
+		return
 	
 	set_hp()
 

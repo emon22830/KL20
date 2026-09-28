@@ -2,7 +2,9 @@ extends RigidBody2D
 
 var hp : int = 0
 var max_hp : int = 0
-
+var heading := Vector2.RIGHT          # current facing, persists between frames
+@export var turn_speed := 15.0         # radians per second
+@export var speed := 10.0
 @export var xp_orb_scene: PackedScene = preload("res://src/xp_orb/xp_orb.tscn") 
 var is_dead: bool = false 
 
@@ -15,6 +17,9 @@ func _ready() -> void:
 	sprite.autowrap_mode = TextServer.AUTOWRAP_OFF
 	sprite.fit_content = true
 	await get_tree().process_frame
+	scale += scale
+	if GameManager.INTMAX64 / 2 > max_hp : hp * 2
+	else : hp = GameManager.INTMAX64 - 1 
 	check_hp()
 
 
@@ -63,17 +68,8 @@ func die() -> void:
 	#pass
 
 func _physics_process(delta: float) -> void:
-	
-	if abs(linear_velocity) > Vector2(0.01, 0.01) : 
-		linear_velocity += -linear_velocity / 10
-		return
-	
-	#if abs(linear_velocity) < Vector2(0.01, 0.01):
-		#print("trying set 0 somehow")
-		#linear_velocity = Vector2.ZERO
-	
-	var direction = GameManager.player.position - position 
-	var random_offset = randf_range(-0.3, 0.3)   # radians, adjust spread as needed
-	direction = direction.rotated(random_offset)
-	direction = direction.normalized()
-	apply_central_impulse(direction * 3000)
+	var target_dir = (GameManager.player.position - position).normalized()
+	var angle_diff = heading.angle_to(target_dir)   # signed angle, -PI to PI
+	var max_turn = turn_speed * delta
+	heading = heading.rotated(clamp(angle_diff, -max_turn, max_turn))
+	apply_central_impulse(heading * speed)
