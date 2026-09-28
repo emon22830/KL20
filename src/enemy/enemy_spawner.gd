@@ -17,6 +17,9 @@ extends Node2D
 
 @export var hp_growth_multiplier: float = 2
 
+@export var spawn_margin: float = 400.0
+@export var despawn_extra: float = 200.0
+
 var current_min_hp: int
 var current_max_hp: int
 
@@ -39,15 +42,37 @@ func _ready() -> void:
 	spawn(get_random_hp())
 
 func enemy_max_set() -> void:
-	if nearest_po2(current_min_hp) <= 0:
-		GameManager.enemy_max_count = 5
-		return
+	#if nearest_po2(current_min_hp) <= 0:
+		#GameManager.enemy_max_count = 5
+		#return
 	
-	GameManager.enemy_max_count = log(nearest_po2(current_min_hp)) + 5
+	GameManager.enemy_max_count = GameManager.player.level + 5
 
 func _on_spawn_timer_timeout() -> void:
+	despawn_far_props()
 	spawn(get_random_hp())
 
+func get_camera_half_size() -> Vector2:
+	var view_size: Vector2 = get_viewport().get_visible_rect().size
+	var camera := get_viewport().get_camera_2d()
+
+	if camera:
+		view_size /= camera.zoom
+
+	return view_size / 2.0
+
+func get_spawn_radius() -> float:
+	return get_camera_half_size().length() + spawn_margin
+
+func despawn_far_props() -> void:
+	var player_pos: Vector2 = GameManager.player.global_position
+	var max_distance: float = get_spawn_radius() + despawn_extra
+
+	for prop in GameManager.enemy_list:
+		if not is_instance_valid(prop): return
+		if prop.global_position.distance_to(player_pos) > max_distance:
+			GameManager.remove_child(prop)
+			prop.queue_free()
 
 func get_random_hp() -> int:
 	return randi_range(current_min_hp, current_max_hp)
@@ -101,13 +126,3 @@ func random_spawn_position() -> Vector2:
 			offset = Vector2(outer_x, randf_range(-outer_y, outer_y))
 
 	return player_pos + offset
-
-
-func get_camera_half_size() -> Vector2:
-	var view_size: Vector2 = get_viewport().get_visible_rect().size
-	var camera := get_viewport().get_camera_2d()
-
-	if camera:
-		view_size /= camera.zoom
-
-	return view_size / 2.0

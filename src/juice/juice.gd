@@ -34,6 +34,7 @@ var bloom_tween: Tween
 
 
 func _ready() -> void:
+	GameManager.enemy_list.clear()
 	noise.seed = randi()
 	noise.frequency = 1.0
 	vignette.material.set_shader_parameter("intensity", 0.0)
