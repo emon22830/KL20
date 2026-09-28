@@ -114,6 +114,7 @@ func play_hit_juice() -> void:
 		return
 	last_hit_juice_time = now
 
+	Juice.play_sfx(Juice.sfx_player_hurt)
 	Juice.shake(0.6)
 	Juice.screen_flash(Color.RED, 0.7)
 	Juice.hit_stop(0.08)

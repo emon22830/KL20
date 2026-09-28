@@ -25,6 +25,7 @@ func set_hp() -> void:
 
 func on_take_damage(amount : int) -> void:
 	hp -= amount
+	Juice.play_sfx(Juice.sfx_enemy_hit)
 	if hp > 0:
 		Juice.flash_sprite(sprite)
 		Juice.punch_scale(sprite, 0.3)
