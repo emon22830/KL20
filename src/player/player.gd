@@ -23,6 +23,8 @@ extends CharacterBody2D
 @onready var hitbox_collider := $Hitbox/Collider
 @onready var gun := $gun
 @onready var camera := $Camera2D
+@onready var hacknslash := $"../CanvasLayer/Backround2"
+
 
 var contacting_enemy : bool = false
 var is_invincible: bool = false
@@ -53,6 +55,11 @@ func _physics_process(_delta):
 		sprite.scale.x = cos(angle)
 		for enemy in GameManager.enemy_list:
 			enemy.die()
+		
+		var i = hacknslash.material.get_shader_parameter("intensity")
+		if(i < 1.3):
+			hacknslash.material.set_shader_parameter("intensity", i + 0.01)
+		
 		
 		velocity = Vector2.UP * speed
 		

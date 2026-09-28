@@ -11,9 +11,26 @@
 [ext_resource type="PackedScene" uid="uid://pn134c5y4jsw" path="res://src/environment/environment_spawner.tscn" id="7_envspawn"]
 [ext_resource type="PackedScene" uid="uid://bab05l70hxfog" path="res://src/ui/level_up/level_up.tscn" id="9_2nke2"]
 [ext_resource type="PackedScene" uid="uid://4ct2kvc053gw" path="res://src/victoryscreen/victoryscreen.tscn" id="11_erw1m"]
+[ext_resource type="Shader" uid="uid://bcn3u84tdryml" path="res://asset/shader/god_rays.gdshader" id="12_ibsor"]
+[ext_resource type="Script" uid="uid://c84xp4etsr7oo" path="res://src/ui/rainbowCanvasItem.gd" id="13_hc2u7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mf2ua"]
 blend_mode = 3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4tqcc"]
+shader = ExtResource("12_ibsor")
+shader_parameter/beam_color = Color(1, 0.92, 0.65, 1)
+shader_parameter/intensity = 0.0
+shader_parameter/top_width = 1.0
+shader_parameter/bottom_width = 0.7
+shader_parameter/edge_softness = 0.11100000457398
+shader_parameter/fade_power = 1.02000004519012
+shader_parameter/top_fade = 0.030000001425
+shader_parameter/ray_count = 11.5750005023125
+shader_parameter/ray_speed = 0.35
+shader_parameter/ray_strength = 0.65
+shader_parameter/dust_amount = 0.354000016815
+shader_parameter/dust_speed = 0.0
 
 [node name="Main" type="Node2D" unique_id=1651082498]
 
@@ -58,6 +75,24 @@ fit_content = true
 
 [node name="PauseMenu" parent="." unique_id=820469798 instance=ExtResource("1_ab7mr")]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1534059478]
+
+[node name="Backround2" type="ColorRect" parent="CanvasLayer" unique_id=1645817407]
+material = SubResource("ShaderMaterial_4tqcc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("13_hc2u7")
+
+[node name="VictoryScreen" parent="CanvasLayer" unique_id=1923928836 instance=ExtResource("11_erw1m")]
+visible = false
+mouse_filter = 1
+
 [node name="LevelUp" parent="." unique_id=781504421 instance=ExtResource("9_2nke2")]
 visible = false
 
@@ -86,8 +121,3 @@ text = "[ Dash ] (cd 2s) later change
 
 "
 fit_content = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1534059478]
-
-[node name="VictoryScreen" parent="CanvasLayer" unique_id=1923928836 instance=ExtResource("11_erw1m")]
-visible = false

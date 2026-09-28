@@ -32,6 +32,7 @@ grow_vertical = 2
 script = ExtResource("1_frrnx")
 
 [node name="Backround" type="ColorRect" parent="." unique_id=634478276]
+visible = false
 material = SubResource("ShaderMaterial_7ev4p")
 layout_mode = 1
 anchors_preset = 15

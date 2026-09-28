@@ -17,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="PauseButton" type="Button" parent="GameUi" unique_id=1450145583]
 layout_mode = 0
@@ -34,6 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="Background" type="ColorRect" parent="PauseOverlay" unique_id=1617970928]
 layout_mode = 1
@@ -106,6 +108,7 @@ script = ExtResource("4_dh0hx")
 
 [node name="Options" parent="." unique_id=773503458 instance=ExtResource("2_u4p1g")]
 visible = false
+mouse_filter = 1
 
 [connection signal="pressed" from="GameUi/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="PauseOverlay/CenterContainer/PausePanel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
