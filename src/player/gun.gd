@@ -19,7 +19,7 @@ var cooldown_left: float = 0.0
 
 func _ready() -> void:
 	if stats == null : return
-	upgrade(stats)
+	upgrade.call_deferred(stats)
 
 func pick_upgrade() -> GunStats:
 	var upgrade_dupe := upgrade_pool.duplicate()
@@ -29,7 +29,7 @@ func pick_upgrade() -> GunStats:
 func upgrade(new_stats: GunStats) -> void:
 	stats = new_stats
 	bullet_amount += stats.bullet_amount
-	bullet_damage = get_parent().level + 1
+	bullet_damage = GameManager.enemy_spawner.current_min_hp / 4
 	fire_rate += stats.fire_rate
 	bullet_speed += stats.bullet_speed
 	spread += stats.spread
