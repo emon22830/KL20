@@ -15,6 +15,7 @@ extends CharacterBody2D
 @export var fire_cooldown := 0.2
 @export var muzzle_offset := Vector2(0, -66)
 @export var hit_juice_cooldown := 0.25
+@export var win_spin : bool = false
 
 @onready var sprite := $Sprite
 @onready var collider := $Collider
@@ -27,7 +28,8 @@ var contacting_enemy : bool = false
 var is_invincible: bool = false
 var can_shoot : bool = true
 var last_hit_juice_time : float = -100.0
-const INT_MAX : int = 9223372036854775807
+
+var angle := 0.0
 
 func _ready() -> void:
 	SignalBus.take_damage.connect(on_take_damage)
@@ -43,6 +45,14 @@ func set_hp() -> void:
 	hitbox_collider.shape.size = sprite_size
 
 func _physics_process(_delta):
+	if win_spin:
+		sprite.pivot_offset = sprite.size / 2
+		angle += 3.0 * _delta
+		sprite.scale.x = cos(angle)
+		for enemy in GameManager.enemy_list:
+			enemy.die()
+		return
+	
 	var direction := Vector2.ZERO
 	
 	if dashing : 
@@ -71,8 +81,8 @@ func _physics_process(_delta):
 	
 	move_and_slide()
 	
-	#if Input.is_action_pressed("shoot") and can_shoot:
-		#shoot()
+	if Input.is_action_pressed("cheat"):
+		cheat_upgrade()
 	
 	if !colliding_bodies.is_empty():
 		check_contact()
@@ -146,11 +156,11 @@ func _on_area_exited(area: Area2D) -> void:
 func add_xp(xp : int) -> void:
 	#print(xp)
 	
-	hp += xp
-	if hp > max_hp:
-		hp = max_hp
+	hp = min(hp + xp, max_hp)
 	
 	check_hp()
+	#set_hp()
+	
 	
 	if exp < max_exp - xp:
 		exp += xp
@@ -161,14 +171,25 @@ func add_xp(xp : int) -> void:
 		max_hp = max_exp
 		GameManager.enemy_spawner.grow_hp_range()
 		gun.upgrade(gun.pick_upgrade())
-		
-#func _unhandled_input(event: InputEvent) -> void:
-	#if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_P:
-		#cheat_upgrade()
+		if max_hp == -GameManager.INTMAX64 - 1:
+			win()
+	
 
-#func cheat_upgrade() -> void:
-	#max_exp = INT_MAX - 1
-	#max_hp = INT_MAX - 1
-	#hp = INT_MAX - 1
-	#exp = max_exp - 1
-	#set_hp()
+func cheat_upgrade() -> void:
+	max_exp = GameManager.INTMAX64 / 2 + 1
+	max_hp = GameManager.INTMAX64 / 2 + 1
+	hp = GameManager.INTMAX64 / 2 + 1
+	exp = max_exp - 1
+	set_hp()
+
+func win() -> void:
+	#collider.set_deffered("disabled", true)
+	#hitbox_collider.set_deffered("disabled", true)
+	collider.queue_free()
+	hitbox_collider.queue_free()
+	gun.queue_free()
+	GameManager.enemy_spawner.queue_free()
+	GameManager.player = null
+	
+	sprite.text = "inf"
+	win_spin = true

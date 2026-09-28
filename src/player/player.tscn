@@ -7,8 +7,14 @@
 [ext_resource type="Script" uid="uid://thg38o1b3uy2" path="res://src/player/gun_stats.gd" id="4_l271a"]
 [ext_resource type="Resource" uid="uid://ctqb1q27u65ob" path="res://src/player/upgrade/machinegun.tres" id="5_8ydov"]
 [ext_resource type="Resource" uid="uid://cxyauq6v0musm" path="res://src/player/upgrade/magnum.tres" id="6_ylhto"]
-[ext_resource type="Resource" uid="uid://cgaujr2go1gnp" path="res://src/player/upgrade/shotgun.tres" id="7_cwolq"]
+[ext_resource type="Resource" uid="uid://gp2v7n08wmyl" path="res://src/player/shotgun.tres" id="7_cwolq"]
 [ext_resource type="Resource" uid="uid://tcw4iaphpvi" path="res://src/player/upgrade/sniper.tres" id="8_2smqc"]
+[ext_resource type="Resource" uid="uid://7yydoimgwwyw" path="res://src/player/upgrade/revolver.tres" id="9_wlj80"]
+[ext_resource type="Resource" uid="uid://d0328tchnkqpe" path="res://src/player/upgrade/n_machinegun.tres" id="10_6bm8s"]
+[ext_resource type="Resource" uid="uid://budl6wqj54mt6" path="res://src/player/upgrade/n_revolver.tres" id="11_hrerp"]
+[ext_resource type="Resource" uid="uid://bs6aofy7vy8f8" path="res://src/player/upgrade/n_magnum.tres" id="12_oyld2"]
+[ext_resource type="Resource" uid="uid://ccsdf41pq2fyf" path="res://src/player/upgrade/n_sniper.tres" id="13_vwsmr"]
+[ext_resource type="Resource" uid="uid://bpeya6lnxqnf6" path="res://src/player/upgrade/n_shotgun.tres" id="14_jcdrv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0s08s"]
 
@@ -57,7 +63,7 @@ shape = SubResource("RectangleShape2D_fu6ie")
 
 [node name="gun" type="Node2D" parent="." unique_id=475643059]
 script = ExtResource("3_mf2ua")
-upgrade_pool = Array[ExtResource("4_l271a")]([ExtResource("5_8ydov"), ExtResource("6_ylhto"), ExtResource("7_cwolq"), ExtResource("8_2smqc")])
+upgrade_pool = Array[ExtResource("4_l271a")]([ExtResource("5_8ydov"), ExtResource("6_ylhto"), ExtResource("7_cwolq"), ExtResource("8_2smqc"), ExtResource("9_wlj80"), ExtResource("10_6bm8s"), ExtResource("11_hrerp"), ExtResource("12_oyld2"), ExtResource("13_vwsmr"), ExtResource("14_jcdrv")])
 stats = ExtResource("4_244u8")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_area_entered"]

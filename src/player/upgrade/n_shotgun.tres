@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="GunStats" format=3 uid="uid://bpeya6lnxqnf6"]
+
+[ext_resource type="Script" uid="uid://thg38o1b3uy2" path="res://src/player/gun_stats.gd" id="1_fhtri"]
+
+[resource]
+script = ExtResource("1_fhtri")
+bullet_amount = -1
+spread = -60.0
