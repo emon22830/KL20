@@ -18,7 +18,7 @@ func _process(_delta):
 	hp_label.text = "HP: " + str(player.hp) + " / " + str(player.max_hp)
 	xp_label.text = "XP: " + str(player.exp) + " / " + str(player.max_exp)
 
-func _unhandled_input(event):
+func _input(event):
 	if event.is_action_pressed("show_stats"):
 		toggle_stats()
 

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bab05l70hxfog"]
 
 [ext_resource type="Script" uid="uid://bhnchs567scn5" path="res://src/ui/level_up/level_up.gd" id="1_sgb4v"]
+[ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="2_wc7sj"]
 
 [node name="LevelUp" type="CanvasLayer" unique_id=781504421]
 process_mode = 3
@@ -23,7 +24,15 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.08627451, 0.08627451, 0.08627451, 0.40784314)
 
-[node name="Title" type="Label" parent="Ui" unique_id=389810962]
+[node name="LevelPopup" type="Control" parent="Ui" unique_id=2054428507]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelUpPop" type="Label" parent="Ui/LevelPopup" unique_id=389810962]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,5 +45,12 @@ offset_right = 151.0
 offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "LEVEL UP!"
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_wc7sj")
+theme_override_font_sizes/font_size = 120
+text = "LEVEL UP!!!"
+
+[node name="CardScreen" type="Control" parent="Ui" unique_id=1885544546]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

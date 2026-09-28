@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ejgm82msrfpg" path="res://src/ui/stats.gd" id="1_sbob1"]
 
 [node name="Stats" type="CanvasLayer" unique_id=1648108477]
+process_mode = 3
 script = ExtResource("1_sbob1")
 
 [node name="Ui" type="Control" parent="." unique_id=473662183]
