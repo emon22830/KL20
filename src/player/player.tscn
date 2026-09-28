@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://thg38o1b3uy2" path="res://src/player/gun_stats.gd" id="4_l271a"]
 [ext_resource type="Resource" uid="uid://ctqb1q27u65ob" path="res://src/player/upgrade/machinegun.tres" id="5_8ydov"]
 [ext_resource type="Resource" uid="uid://cxyauq6v0musm" path="res://src/player/upgrade/magnum.tres" id="6_ylhto"]
-[ext_resource type="Resource" uid="uid://cgaujr2go1gnp" path="res://src/player/upgrade/shotgun.tres" id="7_cwolq"]
+[ext_resource type="Resource" uid="uid://gp2v7n08wmyl" path="res://src/player/shotgun.tres" id="7_cwolq"]
 [ext_resource type="Resource" uid="uid://tcw4iaphpvi" path="res://src/player/upgrade/sniper.tres" id="8_2smqc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0s08s"]
