@@ -30,7 +30,7 @@ func on_take_damage(amount : int) -> void:
 		Juice.flash_sprite(sprite)
 		Juice.punch_scale(sprite, 0.3)
 		Juice.twitch(sprite)
-		Juice.shake(0.03)
+		#Juice.shake(0.03)
 	check_hp()
 
 func check_hp() -> void:
