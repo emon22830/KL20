@@ -27,6 +27,7 @@ var contacting_enemy : bool = false
 var is_invincible: bool = false
 var can_shoot : bool = true
 var last_hit_juice_time : float = -100.0
+const INT_MAX : int = 9223372036854775807
 
 func _ready() -> void:
 	SignalBus.take_damage.connect(on_take_damage)
@@ -160,3 +161,14 @@ func add_xp(xp : int) -> void:
 		max_hp = max_exp
 		GameManager.enemy_spawner.grow_hp_range()
 		gun.upgrade(gun.pick_upgrade())
+		
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_P:
+		#cheat_upgrade()
+
+#func cheat_upgrade() -> void:
+	#max_exp = INT_MAX - 1
+	#max_hp = INT_MAX - 1
+	#hp = INT_MAX - 1
+	#exp = max_exp - 1
+	#set_hp()

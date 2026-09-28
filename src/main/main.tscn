@@ -37,15 +37,19 @@ script = ExtResource("4_djufw")
 [node name="EnemySpawner" parent="." unique_id=1802011524 instance=ExtResource("5_jkpqq")]
 position = Vector2(645, 382)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1717138594]
-offset_left = 74.0
-offset_top = 128.0
-offset_right = 558.0
-offset_bottom = 376.0
+[node name="Movement" type="RichTextLabel" parent="." unique_id=1717138594]
+offset_left = -240.0
+offset_top = -478.0
+offset_right = 9.0
+offset_bottom = -148.0
 theme_override_constants/outline_size = 6
 theme_override_fonts/normal_font = ExtResource("6_jqarl")
 theme_override_font_sizes/normal_font_size = 62
-text = "dasdasasdaasd"
+text = "[ Movement ] 
+	 [w]
+ [a] 	 [s]
+	 [d]"
+fit_content = true
 
 [node name="Stats" parent="." unique_id=1648108477 instance=ExtResource("1_frqgp")]
 
@@ -54,3 +58,30 @@ text = "dasdasasdaasd"
 [node name="PauseMenu" parent="." unique_id=820469798 instance=ExtResource("1_ab7mr")]
 
 [node name="LevelUp" parent="." unique_id=781504421 instance=ExtResource("9_2nke2")]
+visible = false
+
+[node name="Attack" type="RichTextLabel" parent="." unique_id=7557545]
+offset_left = 53.0
+offset_top = -479.0
+offset_right = 387.0
+offset_bottom = -221.0
+theme_override_fonts/normal_font = ExtResource("6_jqarl")
+theme_override_font_sizes/normal_font_size = 62
+text = "	  [ Attack ]
+
+	 Right- Click"
+fit_content = true
+
+[node name="Dash" type="RichTextLabel" parent="." unique_id=365359386]
+offset_left = 471.0
+offset_top = -470.0
+offset_right = 1023.0
+offset_bottom = -206.0
+theme_override_fonts/normal_font = ExtResource("6_jqarl")
+theme_override_font_sizes/normal_font_size = 62
+text = "[ Dash ] (cd 2s) later change
+
+	  Shift
+
+"
+fit_content = true

@@ -4,8 +4,5 @@
 
 [resource]
 script = ExtResource("1_lg38h")
-bullet_amount = 0
-bullet_damage = 0
-fire_rate = 0.1
-bullet_speed = 100.0
-spread = 0.0
+fire_rate = -1.0
+spread = -60.0
