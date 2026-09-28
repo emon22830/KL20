@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_yo8t4")
+gun_name = "-Mag"
 bullet_amount = 1
 bullet_speed = -100.0

@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_qsqek")
+gun_name = "Revolver"
 bullet_amount = -1
 fire_rate = 2.0

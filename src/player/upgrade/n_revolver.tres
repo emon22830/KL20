@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_mqdql")
+gun_name = "-Rev"
 bullet_amount = 1
 fire_rate = -1.0

@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://thg38o1b3uy2" path="res://src/player/gun_stats.gd" id="4_l271a"]
 [ext_resource type="Resource" uid="uid://ctqb1q27u65ob" path="res://src/player/upgrade/machinegun.tres" id="5_8ydov"]
 [ext_resource type="Resource" uid="uid://cxyauq6v0musm" path="res://src/player/upgrade/magnum.tres" id="6_ylhto"]
-[ext_resource type="Resource" uid="uid://gp2v7n08wmyl" path="res://src/player/shotgun.tres" id="7_cwolq"]
+[ext_resource type="Resource" uid="uid://cgaujr2go1gnp" path="res://src/player/upgrade/shotgun.tres" id="7_cwolq"]
 [ext_resource type="Resource" uid="uid://tcw4iaphpvi" path="res://src/player/upgrade/sniper.tres" id="8_2smqc"]
 [ext_resource type="Resource" uid="uid://7yydoimgwwyw" path="res://src/player/upgrade/revolver.tres" id="9_wlj80"]
 [ext_resource type="Resource" uid="uid://d0328tchnkqpe" path="res://src/player/upgrade/n_machinegun.tres" id="10_6bm8s"]
@@ -61,9 +61,9 @@ collision_mask = 5
 [node name="Collider" type="CollisionShape2D" parent="Hitbox" unique_id=824898735]
 shape = SubResource("RectangleShape2D_fu6ie")
 
-[node name="gun" type="Node2D" parent="." unique_id=475643059]
+[node name="gun" type="Node2D" parent="." unique_id=475643059 groups=["gun"]]
 script = ExtResource("3_mf2ua")
-upgrade_pool = Array[ExtResource("4_l271a")]([ExtResource("5_8ydov"), ExtResource("6_ylhto"), ExtResource("7_cwolq"), ExtResource("8_2smqc"), ExtResource("9_wlj80"), ExtResource("10_6bm8s"), ExtResource("11_hrerp"), ExtResource("12_oyld2"), ExtResource("13_vwsmr"), ExtResource("14_jcdrv")])
+upgrade_pool = Array[ExtResource("4_l271a")]([ExtResource("5_8ydov"), ExtResource("6_ylhto"), ExtResource("10_6bm8s"), ExtResource("12_oyld2"), ExtResource("11_hrerp"), ExtResource("14_jcdrv"), ExtResource("13_vwsmr"), ExtResource("9_wlj80"), ExtResource("7_cwolq"), ExtResource("8_2smqc")])
 stats = ExtResource("4_244u8")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_area_entered"]

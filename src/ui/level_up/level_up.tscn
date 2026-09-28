@@ -116,6 +116,17 @@ offset_transform_enabled = true
 theme_override_styles/normal = SubResource("StyleBoxEmpty_erw1m")
 script = ExtResource("3_8gji2")
 
+[node name="DescLabel" type="Label" parent="Ui/CardScreen/Card1/Button" unique_id=532692001]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Card2" type="NinePatchRect" parent="Ui/CardScreen" unique_id=1858842543]
 layout_mode = 0
 offset_left = 705.0
@@ -140,6 +151,17 @@ offset_transform_enabled = true
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w0wra")
 script = ExtResource("3_8gji2")
 
+[node name="DescLabel" type="Label" parent="Ui/CardScreen/Card2/Button" unique_id=799028969]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Card3" type="NinePatchRect" parent="Ui/CardScreen" unique_id=632848009]
 layout_mode = 0
 offset_left = 1304.0
@@ -163,3 +185,14 @@ grow_vertical = 2
 offset_transform_enabled = true
 theme_override_styles/normal = SubResource("StyleBoxEmpty_hc2u7")
 script = ExtResource("3_8gji2")
+
+[node name="DescLabel" type="Label" parent="Ui/CardScreen/Card3/Button" unique_id=878307976]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1

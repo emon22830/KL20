@@ -4,8 +4,6 @@
 
 [resource]
 script = ExtResource("1_svxie")
+gun_name = "+Nag"
 bullet_amount = -1
-bullet_damage = 0
-fire_rate = 0.0
 bullet_speed = 100.0
-spread = 0.0

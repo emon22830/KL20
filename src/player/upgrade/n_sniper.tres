@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_8pcwj")
+gun_name = "-Sniper"
 fire_rate = 2.0
 spread = 20.0

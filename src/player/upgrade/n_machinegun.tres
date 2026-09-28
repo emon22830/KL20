@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_ie1el")
+gun_name = "-magchinegun"
 fire_rate = -1.0
 spread = -60.0

@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_4hgsi")
+gun_name = "Shotgun"
 bullet_amount = 1
 spread = 20.0

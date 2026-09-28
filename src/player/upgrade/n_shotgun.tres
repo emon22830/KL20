@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_fhtri")
+gun_name = "-Shotgun"
 bullet_amount = -1
 spread = -60.0

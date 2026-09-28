@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_axmyj")
+gun_name = "+Machinegun"
 fire_rate = 2.0
 spread = 20.0
