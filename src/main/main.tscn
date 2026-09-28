@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dstv5dx8sivvm" path="res://src/ui/xp_bar/xp_bar.tscn" id="7_30cu5"]
 [ext_resource type="PackedScene" uid="uid://pn134c5y4jsw" path="res://src/environment/environment_spawner.tscn" id="7_envspawn"]
 [ext_resource type="PackedScene" uid="uid://bab05l70hxfog" path="res://src/ui/level_up/level_up.tscn" id="9_2nke2"]
+[ext_resource type="PackedScene" uid="uid://4ct2kvc053gw" path="res://src/victoryscreen/victoryscreen.tscn" id="11_erw1m"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mf2ua"]
 blend_mode = 3
@@ -85,3 +86,8 @@ text = "[ Dash ] (cd 2s) later change
 
 "
 fit_content = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1534059478]
+
+[node name="VictoryScreen" parent="CanvasLayer" unique_id=1923928836 instance=ExtResource("11_erw1m")]
+visible = false

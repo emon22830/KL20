@@ -17,12 +17,12 @@ extends CharacterBody2D
 @export var hit_juice_cooldown := 0.25
 @export var win_spin : bool = false
 
-@onready var sprite := $Sprite
+@onready var sprite : RichTextLabel= $Sprite
 @onready var collider := $Collider
 @onready var hitbox := $Hitbox
 @onready var hitbox_collider := $Hitbox/Collider
 @onready var gun := $gun
-
+@onready var camera := $Camera2D
 
 var contacting_enemy : bool = false
 var is_invincible: bool = false
@@ -30,6 +30,8 @@ var can_shoot : bool = true
 var last_hit_juice_time : float = -100.0
 
 var angle := 0.0
+var upSpinDone := false;
+
 
 func _ready() -> void:
 	SignalBus.take_damage.connect(on_take_damage)
@@ -51,6 +53,22 @@ func _physics_process(_delta):
 		sprite.scale.x = cos(angle)
 		for enemy in GameManager.enemy_list:
 			enemy.die()
+		
+		velocity = Vector2.UP * speed
+		
+		move_and_slide()
+		
+		# Done once the player has flown off the top of the (frozen) camera view
+		var half_view_height : float = get_viewport_rect().size.y / camera.zoom.y / 2.0
+		if global_position.y < camera.global_position.y - half_view_height - sprite.size.y:
+			upSpinDone = true;
+			SignalBus.game_win.emit()
+			queue_free()
+			
+		
+#		if(upSpinDone):
+
+		
 		return
 	
 	var direction := Vector2.ZERO
@@ -195,4 +213,11 @@ func win() -> void:
 	GameManager.player = null
 	
 	sprite.text = "inf"
+	
+	camera.top_level = true
+	camera.global_position = global_position
+	
+
+
+	
 	
