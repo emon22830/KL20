@@ -5,12 +5,6 @@
 [ext_resource type="Script" uid="uid://bhcb6rmkv26p2" path="res://src/ui/card_animation.gd" id="3_8gji2"]
 [ext_resource type="Texture2D" uid="uid://d1mubdfewfip7" path="res://asset/ui/LevelCard.png" id="3_pmnnj"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j1xuw"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wsysb"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i5h6v"]
-
 [node name="LevelUp" type="CanvasLayer" unique_id=781504421]
 process_mode = 3
 script = ExtResource("1_sgb4v")
@@ -94,6 +88,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
+offset_transform_scale = Vector2(0, 0)
 
 [node name="Card2" type="Control" parent="Ui/CardScreen" unique_id=1404634973]
 anchors_preset = 0
@@ -121,6 +116,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
+offset_transform_scale = Vector2(0, 0)
 
 [node name="Card3" type="Control" parent="Ui/CardScreen" unique_id=209033702]
 anchors_preset = 0
@@ -148,6 +144,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_j1xuw")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_wsysb")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_i5h6v")
+offset_transform_scale = Vector2(0, 0)

@@ -16,6 +16,8 @@ blend_mode = 3
 
 [node name="Main" type="Node2D" unique_id=1651082498]
 
+[node name="Stats" parent="." unique_id=1648108477 instance=ExtResource("1_frqgp")]
+
 [node name="EnvironmentSpawner" parent="." unique_id=1051320414 instance=ExtResource("7_envspawn")]
 
 [node name="Player" parent="." unique_id=874143678 instance=ExtResource("1_3eh75")]
@@ -47,10 +49,8 @@ theme_override_fonts/normal_font = ExtResource("6_jqarl")
 theme_override_font_sizes/normal_font_size = 62
 text = "dasdasasdaasd"
 
-[node name="Stats" parent="." unique_id=1648108477 instance=ExtResource("1_frqgp")]
-
 [node name="XpBar" parent="." unique_id=1912313236 instance=ExtResource("7_30cu5")]
 
-[node name="PauseMenu" parent="." unique_id=820469798 instance=ExtResource("1_ab7mr")]
-
 [node name="LevelUp" parent="." unique_id=781504421 instance=ExtResource("9_2nke2")]
+
+[node name="PauseMenu" parent="." unique_id=820469798 instance=ExtResource("1_ab7mr")]
