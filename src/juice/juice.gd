@@ -9,6 +9,8 @@ extends CanvasLayer
 
 @export var sfx_enemy_hit: AudioStream = preload("res://asset/sound/8bit 16bit sound effects (x25) pack/Boss hit 1.wav")
 @export var sfx_player_hurt: AudioStream = preload("res://asset/sound/8bit 16bit sound effects (x25) pack/Hit damage 1.wav")
+@export var sfx_button_ding: AudioStream = preload("res://asset/sound/8bit 16bit sound effects (x25) pack/Text 1.wav")
+
 @export var sfx_pitch_variation: float = 0.1
 
 var sfx_players: Dictionary = {}
