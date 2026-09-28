@@ -25,10 +25,10 @@ script = ExtResource("3_7seqg")
 
 [node name="Play" type="Button" parent="." unique_id=1761478992]
 layout_mode = 0
-offset_left = 797.0
-offset_top = 435.0
-offset_right = 1102.0
-offset_bottom = 582.0
+offset_left = 765.0
+offset_top = 482.0
+offset_right = 1121.0
+offset_bottom = 629.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 offset_transform_scale = Vector2(0.755, 0.755)
@@ -39,10 +39,10 @@ script = ExtResource("4_7seqg")
 
 [node name="Options" type="Button" parent="." unique_id=649768266]
 layout_mode = 0
-offset_left = 763.0
-offset_top = 623.0
-offset_right = 1119.0
-offset_bottom = 817.0
+offset_left = 765.0
+offset_top = 663.0
+offset_right = 1121.0
+offset_bottom = 797.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 offset_transform_scale = Vector2(0.755, 0.755)
@@ -53,10 +53,10 @@ script = ExtResource("4_7seqg")
 
 [node name="Exit" type="Button" parent="." unique_id=576317864]
 layout_mode = 0
-offset_left = 754.0
-offset_top = 881.0
-offset_right = 1137.0
-offset_bottom = 1007.0
+offset_left = 765.0
+offset_top = 841.0
+offset_right = 1121.0
+offset_bottom = 967.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 offset_transform_scale = Vector2(0.755, 0.755)
