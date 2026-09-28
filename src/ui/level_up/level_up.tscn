@@ -1,19 +1,25 @@
 [gd_scene format=3 uid="uid://bab05l70hxfog"]
 
-[ext_resource type="Script" uid="uid://bhnchs567scn5" path="res://src/ui/level_up/level_up.gd" id="1_sgb4v"]
+[ext_resource type="Script" uid="uid://c7rya1g48dc87" path="res://src/ui/level_up/replacement_level_up.gd" id="1_8gji2"]
 [ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="2_wc7sj"]
 [ext_resource type="Script" uid="uid://bhcb6rmkv26p2" path="res://src/ui/card_animation.gd" id="3_8gji2"]
 [ext_resource type="Texture2D" uid="uid://dv7c48doeq2eu" path="res://asset/ui/LevelCardNoPict.png" id="3_j1xuw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_erw1m"]
 
+[sub_resource type="Theme" id="Theme_j1xuw"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w0wra"]
+
+[sub_resource type="Theme" id="Theme_wsysb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hc2u7"]
 
+[sub_resource type="Theme" id="Theme_i5h6v"]
+
 [node name="LevelUp" type="CanvasLayer" unique_id=781504421]
 process_mode = 3
-script = ExtResource("1_sgb4v")
+script = ExtResource("1_8gji2")
 
 [node name="Infinite" type="Label" parent="." unique_id=1322824019]
 anchors_preset = 15
@@ -116,14 +122,17 @@ offset_transform_enabled = true
 theme_override_styles/normal = SubResource("StyleBoxEmpty_erw1m")
 script = ExtResource("3_8gji2")
 
-[node name="DescLabel" type="Label" parent="Ui/CardScreen/Card1/Button" unique_id=532692001]
+[node name="DescLabel" type="RichTextLabel" parent="Ui/CardScreen/Card1/Button" unique_id=532504253]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 32
+theme = SubResource("Theme_j1xuw")
+theme_override_fonts/normal_font = ExtResource("2_wc7sj")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -151,14 +160,16 @@ offset_transform_enabled = true
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w0wra")
 script = ExtResource("3_8gji2")
 
-[node name="DescLabel" type="Label" parent="Ui/CardScreen/Card2/Button" unique_id=799028969]
+[node name="DescLabel" type="RichTextLabel" parent="Ui/CardScreen/Card2/Button" unique_id=1648433500]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 32
+theme = SubResource("Theme_wsysb")
+theme_override_fonts/normal_font = ExtResource("2_wc7sj")
+theme_override_font_sizes/normal_font_size = 60
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -186,13 +197,15 @@ offset_transform_enabled = true
 theme_override_styles/normal = SubResource("StyleBoxEmpty_hc2u7")
 script = ExtResource("3_8gji2")
 
-[node name="DescLabel" type="Label" parent="Ui/CardScreen/Card3/Button" unique_id=878307976]
+[node name="DescLabel" type="RichTextLabel" parent="Ui/CardScreen/Card3/Button" unique_id=928637863]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 32
+theme = SubResource("Theme_i5h6v")
+theme_override_fonts/normal_font = ExtResource("2_wc7sj")
+theme_override_font_sizes/normal_font_size = 60
 horizontal_alignment = 1
 vertical_alignment = 1
