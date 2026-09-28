@@ -26,10 +26,12 @@ func set_hp() -> void:
 
 func on_take_damage(amount : int) -> void:
 	hp -= amount
+	Juice.play_sfx(Juice.sfx_enemy_hit)
 	if hp > 0:
 		Juice.flash_sprite(sprite)
 		Juice.punch_scale(sprite, 0.2)
-		Juice.shake(0.08)
+		Juice.twitch(sprite)
+		Juice.shake(0.07)
 	check_hp()
 	is_hurt = true
 	get_tree().create_timer(1).timeout.connect(func(): is_hurt = false)

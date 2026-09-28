@@ -29,7 +29,7 @@ func pick_upgrade() -> GunStats:
 func upgrade(new_stats: GunStats) -> void:
 	stats = new_stats
 	bullet_amount += stats.bullet_amount
-	bullet_damage += stats.bullet_damage
+	bullet_damage = get_parent().level + 1
 	fire_rate += stats.fire_rate
 	bullet_speed += stats.bullet_speed
 	spread += stats.spread
