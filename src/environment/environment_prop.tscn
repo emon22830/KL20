@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://buut1dwp6qkod"]
+
+[node name="EnvironmentProp" type="Node2D" unique_id=1830808911]
+z_index = -1
+
+[node name="Sprite" type="RichTextLabel" parent="." unique_id=260594418]
+offset_left = -150.0
+offset_top = -50.0
+offset_right = 150.0
+offset_bottom = 50.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "rock"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
