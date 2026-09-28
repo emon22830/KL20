@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="GunStats" format=3 uid="uid://xl6t4tkbqihy"]
+
+[ext_resource type="Script" uid="uid://thg38o1b3uy2" path="res://src/player/gun_stats.gd" id="1_icpgl"]
+
+[resource]
+script = ExtResource("1_icpgl")
+gun_name = "machinegun"
+fire_rate = 1.0
+spread = 10.0

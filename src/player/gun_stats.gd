@@ -1,21 +1,16 @@
 class_name GunStats
 extends Resource
 
-# A preset of gun numbers. Make .tres files from this to create different guns.
+# Values that get ADDED to the gun by gun.add_upgrade().
+# Positive = more, negative = less, 0 = no change.
 
-@export var gun_name: String = "Basic Gun"
+@export var gun_name: String = "Upgrade"
 
-# How many bullets come out per shot
-@export var bullet_amount: int = 1
+@export var bullet_amount: int = 0
+@export var bullet_damage: int = 0
+@export var fire_rate: float = 0.0
+@export var bullet_speed: float = 0.0
+@export var spread: float = 0.0
 
-# How much each bullet reduces an enemy's number
-@export var bullet_damage: int = 1
-
-# Shots per second (5.0 = one shot every 0.2 seconds)
-@export var fire_rate: float = 5.0
-
-# How fast bullets fly
-@export var bullet_speed: float = 1200.0
-
-# Total angle (in degrees) the bullets fan out over when bullet_amount > 1
-@export var spread: float = 20.0
+# Seconds added to how long bullets live (longer = more range)
+@export var bullet_lifetime: float = 0.0
