@@ -137,6 +137,7 @@ size_flags_vertical = 4
 value = 95.0
 
 [node name="MusicVolumeRow" type="HBoxContainer" parent="CenterContainer/OptionsPanel/VBoxContainer" unique_id=302167933]
+visible = false
 layout_mode = 2
 
 [node name="MusicVolumeLabel" type="Label" parent="CenterContainer/OptionsPanel/VBoxContainer/MusicVolumeRow" unique_id=1947533908]
@@ -152,6 +153,7 @@ size_flags_vertical = 4
 value = 70.0
 
 [node name="SFXVolumeRow" type="HBoxContainer" parent="CenterContainer/OptionsPanel/VBoxContainer" unique_id=899705037]
+visible = false
 layout_mode = 2
 
 [node name="SFXVolumeLabel" type="Label" parent="CenterContainer/OptionsPanel/VBoxContainer/SFXVolumeRow" unique_id=867361274]

@@ -24,6 +24,7 @@ var card_upgrade_3: GunStats
 
 
 func _ready():
+	SignalBus.level_up.connect(open_level_up)
 	hide()
 	
 	logo.hide()
@@ -43,14 +44,15 @@ func _process(_delta):
 	if not is_instance_valid(GameManager.player):
 		return
 	
-	var current_level = GameManager.player.level
-	
-	if current_level > previous_level:
-		previous_level = current_level
-		open_level_up()
+	#var current_level = GameManager.player.level
+	#
+	#if current_level > previous_level:
+		#previous_level = current_level
+		#open_level_up()
 
 
 func open_level_up():
+	Juice.play_sfx(Juice.main_menu_music)
 	level_up_open = true
 	show()
 	get_tree().paused = true

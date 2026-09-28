@@ -51,14 +51,17 @@ func _process(_delta):
 	if not is_instance_valid(GameManager.player):
 		return
 	
+	
 	var current_level = GameManager.player.level
 	
 	if current_level > previous_level:
 		previous_level = current_level
+		
 		open_level_up()
 
 
 func open_level_up():
+	Juice.play_sfx(Juice.level_up_sfx)
 	level_up_open = true
 	show()
 	get_tree().paused = true

@@ -20,6 +20,7 @@ func _on_entered():
 func _on_exited():
 	create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT) \
 		.tween_property(parent, "scale", Vector2.ONE, duration)
+	Juice.play_sfx(Juice.card_pick_sfx)
 
 func _update_pivot():
 	parent.pivot_offset = size / 2.0

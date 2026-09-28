@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dp2028b27qjuw" path="res://src/player/player.tscn" id="1_3eh75"]
 [ext_resource type="PackedScene" uid="uid://cg1jcmieldema" path="res://src/ui/pause_menu/pause_menu.tscn" id="1_ab7mr"]
 [ext_resource type="PackedScene" uid="uid://doh888nemwvrb" path="res://src/ui/stats.tscn" id="1_frqgp"]
+[ext_resource type="Script" uid="uid://u8lpnywsn8ob" path="res://src/main/main.gd" id="1_w0wra"]
 [ext_resource type="Texture2D" uid="uid://spaer7g4v76u" path="res://icon.svg" id="2_3s6yk"]
 [ext_resource type="Script" uid="uid://xj3wnkr7gya7" path="res://src/main/fps_count.gd" id="4_djufw"]
 [ext_resource type="PackedScene" uid="uid://bk6kq1k6wx8hy" path="res://src/enemy/enemy_spawner.tscn" id="5_jkpqq"]
@@ -33,6 +34,7 @@ shader_parameter/dust_amount = 0.354000016815
 shader_parameter/dust_speed = 0.0
 
 [node name="Main" type="Node2D" unique_id=1651082498]
+script = ExtResource("1_w0wra")
 
 [node name="EnvironmentSpawner" parent="." unique_id=1051320414 instance=ExtResource("7_envspawn")]
 

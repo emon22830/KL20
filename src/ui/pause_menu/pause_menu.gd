@@ -44,4 +44,6 @@ func _on_main_menu_pressed() -> void:
 	#get_tree().current_scene = mainMenu
 	#get_tree().current_scene.queue_free()\
 	toggle_pause()
+	for sfx in GameManager.sfx_player:
+		sfx.stop()
 	get_tree().change_scene_to_file("res://src/mainmenu/main_menu.tscn")

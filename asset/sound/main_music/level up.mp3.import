@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnsm3pk5kpp64"
+path="res://.godot/imported/level up.mp3-c73258511fd76f610a26d2105c10cc17.mp3str"
+
+[deps]
+
+source_file="res://asset/sound/main_music/level up.mp3"
+dest_files=["res://.godot/imported/level up.mp3-c73258511fd76f610a26d2105c10cc17.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

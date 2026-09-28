@@ -27,6 +27,8 @@ func owo() ->void:
 	win = true;
 	show()
 
+	for sfx in GameManager.sfx_player:
+		sfx.stop()
 	sfx_victory_fanfare_final_fantasy.play()
 
 	var viewport_size := get_viewport_rect().size

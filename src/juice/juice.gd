@@ -10,6 +10,12 @@ extends CanvasLayer
 @export var sfx_enemy_hit: AudioStream = preload("res://asset/sound/8bit 16bit sound effects (x25) pack/Boss hit 1.wav")
 @export var sfx_player_hurt: AudioStream = preload("res://asset/sound/8bit 16bit sound effects (x25) pack/Hit damage 1.wav")
 @export var sfx_button_ding: AudioStream = preload("res://asset/sound/8bit 16bit sound effects (x25) pack/Text 1.wav")
+@export var battle_music: AudioStream = preload("res://asset/sound/main_music/battle.mp3")
+@export var game_over_music: AudioStream = preload("res://asset/sound/main_music/gameover.mp3")
+@export var level_up_sfx: AudioStream = preload("res://asset/sound/main_music/level up.mp3")
+@export var card_pick_sfx: AudioStream = preload("res://asset/sound/main_music/car ppick.mp3")
+@export var main_menu_music: AudioStream = preload("res://asset/sound/main_music/main menu.mp3")
+
 
 @export var sfx_pitch_variation: float = 0.1
 
@@ -51,6 +57,7 @@ func play_sfx(stream: AudioStream, volume_db: float = 0.0) -> void:
 	player.volume_db = volume_db
 	player.pitch_scale = randf_range(1.0 - sfx_pitch_variation, 1.0 + sfx_pitch_variation)
 	player.play()
+	GameManager.sfx_player.append(player)
 
 func shake(amount: float) -> void:
 	trauma = minf(trauma + amount, 1.0)

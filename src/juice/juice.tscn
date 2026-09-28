@@ -16,6 +16,7 @@ glow_enabled = true
 glow_intensity = 0.0
 
 [node name="Juice" type="CanvasLayer" unique_id=863504859]
+process_mode = 3
 layer = 100
 script = ExtResource("1_juice")
 

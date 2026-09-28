@@ -196,8 +196,11 @@ func add_xp(xp : int) -> void:
 		max_hp = max_exp
 		GameManager.enemy_spawner.grow_hp_range()
 		gun.upgrade(gun.pick_upgrade())
+		
 		if max_hp == -GameManager.INTMAX64 - 1:
 			win()
+		
+		SignalBus.level_up.emit()
 	
 
 func cheat_upgrade() -> void:

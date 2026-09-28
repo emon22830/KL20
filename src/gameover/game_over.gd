@@ -1,5 +1,8 @@
 extends Control
-
+func _ready() -> void:
+	for sfx in GameManager.sfx_player:
+		sfx.stop()
+	Juice.play_sfx(Juice.game_over_music)
 func _on_retry_pressed() -> void:
 	get_tree().change_scene_to_file("res://src/main/main.tscn")
 

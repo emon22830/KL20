@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cn501rngpdrp7"
+path="res://.godot/imported/car ppick.mp3-87566a54b7376adeca9864173ad5f635.mp3str"
+
+[deps]
+
+source_file="res://asset/sound/main_music/car ppick.mp3"
+dest_files=["res://.godot/imported/car ppick.mp3-87566a54b7376adeca9864173ad5f635.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
