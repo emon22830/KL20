@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://4ct2kvc053gw"]
+
+[ext_resource type="Script" uid="uid://b6tuv02vcgr4q" path="res://src/victoryscreen/victoryscreen.gd" id="1_frrnx"]
+[ext_resource type="Script" uid="uid://c84xp4etsr7oo" path="res://src/ui/rainbowCanvasItem.gd" id="1_mme7d"]
+[ext_resource type="Shader" uid="uid://bcn3u84tdryml" path="res://asset/shader/god_rays.gdshader" id="2_vmel3"]
+[ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="2_wb16m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ev4p"]
+shader = ExtResource("2_vmel3")
+shader_parameter/beam_color = Color(1, 0.92, 0.65, 1)
+shader_parameter/intensity = 1.2
+shader_parameter/top_width = 1.0
+shader_parameter/bottom_width = 0.7
+shader_parameter/edge_softness = 0.11100000457398
+shader_parameter/fade_power = 1.02000004519012
+shader_parameter/top_fade = 0.030000001425
+shader_parameter/ray_count = 11.5750005023125
+shader_parameter/ray_speed = 0.35
+shader_parameter/ray_strength = 0.65
+shader_parameter/dust_amount = 0.354000016815
+shader_parameter/dust_speed = 0.0
+
+[node name="VictoryScreen" type="Control" unique_id=1923928836]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_frrnx")
+
+[node name="Backround" type="ColorRect" parent="." unique_id=634478276]
+material = SubResource("ShaderMaterial_7ev4p")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_mme7d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1019683954]
+layout_mode = 0
+offset_right = 122.0
+offset_bottom = 96.0
+
+[node name="VictoryLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=955211961]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_wb16m")
+theme_override_font_sizes/normal_font_size = 62
+text = "VICTORY"
+fit_content = true
+autowrap_mode = 0
+script = ExtResource("1_mme7d")
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=465885317]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wb16m")
+text = "Back to Main Menu"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1214461729]

@@ -183,6 +183,9 @@ func cheat_upgrade() -> void:
 	set_hp()
 
 func win() -> void:
+	for enemy in GameManager.enemy_list:
+		enemy.die()
+	win_spin = true
 	#collider.set_deffered("disabled", true)
 	#hitbox_collider.set_deffered("disabled", true)
 	collider.queue_free()
@@ -192,4 +195,4 @@ func win() -> void:
 	GameManager.player = null
 	
 	sprite.text = "inf"
-	win_spin = true
+	
