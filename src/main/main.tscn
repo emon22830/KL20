@@ -9,7 +9,6 @@
 [ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="6_jqarl"]
 [ext_resource type="PackedScene" uid="uid://dstv5dx8sivvm" path="res://src/ui/xp_bar/xp_bar.tscn" id="7_30cu5"]
 [ext_resource type="PackedScene" uid="uid://pn134c5y4jsw" path="res://src/environment/environment_spawner.tscn" id="7_envspawn"]
-[ext_resource type="Script" uid="uid://b4oc16rrbpth2" path="res://src/main/movement.gd" id="7_erw1m"]
 [ext_resource type="PackedScene" uid="uid://bab05l70hxfog" path="res://src/ui/level_up/level_up.tscn" id="9_2nke2"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mf2ua"]
@@ -51,7 +50,6 @@ text = "[ Movement ]
  [a] 	 [s]
 	 [d]"
 fit_content = true
-script = ExtResource("7_erw1m")
 
 [node name="Stats" parent="." unique_id=1648108477 instance=ExtResource("1_frqgp")]
 
