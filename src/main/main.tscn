@@ -17,8 +17,6 @@ blend_mode = 3
 
 [node name="Stats" parent="." unique_id=1648108477 instance=ExtResource("1_frqgp")]
 
-[node name="PauseMenu" parent="." unique_id=820469798 instance=ExtResource("1_ab7mr")]
-
 [node name="Player" parent="." unique_id=874143678 instance=ExtResource("1_3eh75")]
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1047700878]
@@ -51,3 +49,5 @@ text = "dasdasasdaasd"
 [node name="XpBar" parent="." unique_id=1912313236 instance=ExtResource("7_30cu5")]
 
 [node name="LevelUp" parent="." unique_id=781504421 instance=ExtResource("9_2nke2")]
+
+[node name="PauseMenu" parent="." unique_id=820469798 instance=ExtResource("1_ab7mr")]
