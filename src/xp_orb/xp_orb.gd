@@ -33,7 +33,8 @@ func collect() -> void:
 	if is_collected:
 		return
 	is_collected = true
-
+	
+	if GameManager.player == null : return
 	if GameManager.player.has_method("add_xp"):
 		GameManager.player.add_xp(xp_value)
 
