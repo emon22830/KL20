@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bhnchs567scn5" path="res://src/ui/level_up/level_up.gd" id="1_sgb4v"]
 [ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="2_wc7sj"]
 [ext_resource type="Script" uid="uid://bhcb6rmkv26p2" path="res://src/ui/card_animation.gd" id="3_8gji2"]
-[ext_resource type="Texture2D" uid="uid://dv7c48doeq2eu" path="res://asset/ui/LevelCardNoPict.png" id="3_j1xuw"]
+[ext_resource type="Texture2D" uid="uid://d1mubdfewfip7" path="res://asset/ui/LevelCard.png" id="3_pmnnj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_erw1m"]
 
@@ -73,9 +73,9 @@ offset_left = 101.0
 offset_top = 270.0
 offset_right = 621.0
 offset_bottom = 990.0
-texture = ExtResource("3_j1xuw")
+texture = ExtResource("3_pmnnj")
 patch_margin_left = 50
-patch_margin_top = 50
+patch_margin_top = 360
 patch_margin_right = 50
 patch_margin_bottom = 50
 
@@ -97,9 +97,9 @@ offset_left = 705.0
 offset_top = 270.0
 offset_right = 1225.0002
 offset_bottom = 990.0
-texture = ExtResource("3_j1xuw")
+texture = ExtResource("3_pmnnj")
 patch_margin_left = 50
-patch_margin_top = 50
+patch_margin_top = 360
 patch_margin_right = 50
 patch_margin_bottom = 50
 
@@ -113,7 +113,6 @@ grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w0wra")
-script = ExtResource("3_8gji2")
 
 [node name="Card3" type="NinePatchRect" parent="Ui/CardScreen" unique_id=632848009]
 layout_mode = 0
@@ -121,9 +120,9 @@ offset_left = 1304.0
 offset_top = 270.0
 offset_right = 1824.0
 offset_bottom = 990.0
-texture = ExtResource("3_j1xuw")
+texture = ExtResource("3_pmnnj")
 patch_margin_left = 50
-patch_margin_top = 50
+patch_margin_top = 360
 patch_margin_right = 50
 patch_margin_bottom = 50
 
@@ -137,4 +136,3 @@ grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
 theme_override_styles/normal = SubResource("StyleBoxEmpty_hc2u7")
-script = ExtResource("3_8gji2")

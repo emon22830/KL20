@@ -4,15 +4,22 @@ extends Control
 @export var press_scale := 0.94
 @export var duration := 0.12
 
+@onready var parent = $".."
+
 func _ready() -> void:
+	resized.connect(_update_pivot)
+	_update_pivot()
 	
 	mouse_entered.connect(_on_entered)
 	mouse_exited.connect(_on_exited)
 
 func _on_entered():
 	create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT) \
-		.tween_property(self, "scale", Vector2.ONE * hover_scale, duration)
+		.tween_property(parent, "scale", Vector2.ONE * hover_scale, duration)
 
 func _on_exited():
 	create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT) \
-		.tween_property(self, "scale", Vector2.ONE, duration)
+		.tween_property(parent, "scale", Vector2.ONE, duration)
+
+func _update_pivot():
+	parent.pivot_offset = size / 2.0
