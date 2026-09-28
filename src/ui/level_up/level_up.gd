@@ -5,6 +5,7 @@ var level_up_open: bool = false
 
 @onready var level_up_popup = $Ui/LevelPopup
 @onready var card_screen = $Ui/CardScreen
+@onready var logo = $Infinite
 
 @onready var card_button_1 = $Ui/CardScreen/Card1/Button
 @onready var card_button_2 = $Ui/CardScreen/Card2/Button
@@ -13,6 +14,7 @@ var level_up_open: bool = false
 func _ready():
 	hide()
 	
+	logo.hide()
 	level_up_popup.hide()
 	card_screen.hide()
 	
@@ -40,11 +42,13 @@ func open_level_up():
 	
 	level_up_popup.show()
 	card_screen.hide()
+	logo.hide()
 	
 	await get_tree().create_timer(1.0, true).timeout
 	
 	level_up_popup.hide()
 	card_screen.show()
+	logo.show()
 
 func _on_card_pressed():
 	select_card()
