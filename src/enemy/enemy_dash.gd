@@ -27,7 +27,8 @@ func on_take_damage(amount : int) -> void:
 	hp -= amount
 	if hp > 0:
 		Juice.flash_sprite(sprite)
-		Juice.punch_scale(sprite, 0.2)
+		Juice.punch_scale(sprite, 0.3)
+		Juice.twitch(sprite)
 		Juice.shake(0.08)
 	check_hp()
 
