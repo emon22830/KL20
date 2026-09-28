@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://djbgnrmmoytuq"
+path="res://.godot/imported/Suck 2.wav-49d14067d0498651c9d14d4c9d84d159.sample"
+
+[deps]
+
+source_file="res://asset/sound/8bit 16bit sound effects (x25) pack/Suck 2.wav"
+dest_files=["res://.godot/imported/Suck 2.wav-49d14067d0498651c9d14d4c9d84d159.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

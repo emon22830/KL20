@@ -1,6 +1,6 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://pn134c5y4jsw"]
 
-[ext_resource type="Script" path="res://src/environment/environment_spawner.gd" id="1_envspawn"]
+[ext_resource type="Script" uid="uid://caaot3ob0miio" path="res://src/environment/environment_spawner.gd" id="1_envspawn"]
 
-[node name="EnvironmentSpawner" type="Node2D"]
+[node name="EnvironmentSpawner" type="Node2D" unique_id=581266551]
 script = ExtResource("1_envspawn")

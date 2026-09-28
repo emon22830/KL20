@@ -7,6 +7,12 @@ extends CanvasLayer
 
 @export var max_bloom_intensity: float = 1.5
 
+@export var sfx_enemy_hit: AudioStream = preload("res://asset/sound/8bit 16bit sound effects (x25) pack/Boss hit 1.wav")
+@export var sfx_player_hurt: AudioStream = preload("res://asset/sound/8bit 16bit sound effects (x25) pack/Hit damage 1.wav")
+@export var sfx_pitch_variation: float = 0.1
+
+var sfx_players: Dictionary = {}
+
 @onready var vignette: ColorRect = $Vignette
 @onready var environment: Environment = $WorldEnvironment.environment
 
@@ -27,6 +33,22 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	update_shake(delta)
+
+
+func play_sfx(stream: AudioStream, volume_db: float = 0.0) -> void:
+	if stream == null:
+		return
+
+	var player: AudioStreamPlayer = sfx_players.get(stream)
+	if player == null:
+		player = AudioStreamPlayer.new()
+		player.stream = stream
+		add_child(player)
+		sfx_players[stream] = player
+
+	player.volume_db = volume_db
+	player.pitch_scale = randf_range(1.0 - sfx_pitch_variation, 1.0 + sfx_pitch_variation)
+	player.play()
 
 func shake(amount: float) -> void:
 	trauma = minf(trauma + amount, 1.0)
@@ -117,6 +139,23 @@ func set_punch(value: Vector2, target: Control) -> void:
 	target.scale = value
 
 
+func twitch(target: Control, degrees: float = 12.0, duration: float = 0.2) -> void:
+	if not is_instance_valid(target):
+		return
+
+	kill_meta_tween(target, "juice_twitch_tween")
+	var tween := target.create_tween()
+	tween.tween_method(set_twitch.bind(target, degrees), 1.0, 0.0, duration)
+	target.set_meta("juice_twitch_tween", tween)
+
+
+func set_twitch(strength: float, target: Control, degrees: float) -> void:
+	if not is_instance_valid(target):
+		return
+	target.pivot_offset = target.size / 2.0
+	target.rotation = deg_to_rad(degrees) * strength * sin(strength * 40.0)
+
+
 func kill_meta_tween(target: Object, key: String) -> void:
 	if target.has_meta(key):
 		var old: Tween = target.get_meta(key)
@@ -133,6 +172,7 @@ func death_pop(owner_node: Node2D, sprite: Control, grow: float = 2.5, duration:
 	holder.z_index = owner_node.z_index
 	var copy: Control = sprite.duplicate()
 	copy.scale = Vector2.ONE
+	copy.rotation = 0.0
 	copy.modulate = Color(3, 3, 3)
 	holder.add_child(copy)
 	get_tree().current_scene.add_child(holder)
