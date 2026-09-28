@@ -67,7 +67,7 @@ func spawn(hp: int = 0) -> void:
 		return
 	
 	if GameManager.enemy_list.size() >= GameManager.enemy_max_count:
-		print(GameManager.enemy_list.size())
+		#print(GameManager.enemy_list.size())
 		#print(GameManager.enemy_max_count)
 		return
 	

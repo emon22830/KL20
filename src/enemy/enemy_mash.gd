@@ -17,7 +17,8 @@ func _ready() -> void:
 	sprite.autowrap_mode = TextServer.AUTOWRAP_OFF
 	sprite.fit_content = true
 	await get_tree().process_frame
-	scale += scale
+	sprite.scale = Vector2(1.25, 1.25)
+	collider.scale = Vector2(1.5, 1.5)
 	if GameManager.INTMAX64 / 2 > max_hp : hp * 2
 	else : hp = GameManager.INTMAX64 - 1 
 	check_hp()

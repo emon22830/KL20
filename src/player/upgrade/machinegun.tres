@@ -4,8 +4,5 @@
 
 [resource]
 script = ExtResource("1_axmyj")
-bullet_amount = 0
-bullet_damage = 0
-fire_rate = -0.2
-bullet_speed = 0.0
-spread = 10.0
+fire_rate = 2.0
+spread = 20.0
