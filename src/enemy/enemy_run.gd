@@ -31,7 +31,7 @@ func on_take_damage(amount : int) -> void:
 		Juice.flash_sprite(sprite)
 		Juice.punch_scale(sprite, 0.2)
 		Juice.twitch(sprite)
-		Juice.shake(0.07)
+		#Juice.shake(0.03)
 	check_hp()
 	is_hurt = true
 	get_tree().create_timer(1).timeout.connect(func(): is_hurt = false)
