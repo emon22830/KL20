@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 BrightnessManager="*uid://bvb1t3kxsw1fl"
 SignalBus="*uid://c6xsdmiyjv1yp"
 GameManager="*uid://dig1m51gdkweu"
+Juice="*res://src/juice/juice.tscn"
 
 [display]
 

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c6yimbdcub17w"]
+
+[ext_resource type="Script" uid="uid://b3ft84x5orcw5" path="res://src/juice/juice.gd" id="1_juice"]
+[ext_resource type="Shader" uid="uid://co20sr5284xvn" path="res://src/juice/vignette.gdshader" id="2_vignette"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vignette"]
+shader = ExtResource("2_vignette")
+shader_parameter/flash_color = Color(1, 0, 0, 1)
+shader_parameter/intensity = 0.0
+shader_parameter/inner_radius = 0.35
+shader_parameter/outer_radius = 1.0
+
+[sub_resource type="Environment" id="Environment_juice"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.0
+
+[node name="Juice" type="CanvasLayer" unique_id=863504859]
+layer = 100
+script = ExtResource("1_juice")
+
+[node name="Vignette" type="ColorRect" parent="." unique_id=942853454]
+material = SubResource("ShaderMaterial_vignette")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1326269641]
+environment = SubResource("Environment_juice")

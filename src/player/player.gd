@@ -14,6 +14,7 @@ extends CharacterBody2D
 @export var bullet_scene : PackedScene = preload("res://src/bullet/bullet.tscn")
 @export var fire_cooldown := 0.2
 @export var muzzle_offset := Vector2(0, -66)
+@export var hit_juice_cooldown := 0.25
 
 @onready var sprite := $Sprite
 @onready var collider := $Collider
@@ -25,6 +26,7 @@ extends CharacterBody2D
 var contacting_enemy : bool = false
 var is_invincible: bool = false
 var can_shoot : bool = true
+var last_hit_juice_time : float = -100.0
 
 func _ready() -> void:
 	SignalBus.take_damage.connect(on_take_damage)
@@ -99,11 +101,25 @@ func on_take_damage(amount : int) -> void:
 		#return
 	
 	hp -= amount
+	play_hit_juice()
 	check_hp()
 	
 	#is_invincible = true
 	#var timer = get_tree().create_timer(1)
 	#timer.timeout.connect(_on_iframe_timeout)
+
+func play_hit_juice() -> void:
+	var now := Time.get_ticks_msec() / 1000.0
+	if now - last_hit_juice_time < hit_juice_cooldown:
+		return
+	last_hit_juice_time = now
+
+	Juice.shake(0.6)
+	Juice.screen_flash(Color.RED, 0.7)
+	Juice.hit_stop(0.08)
+	Juice.bloom_pulse(0.4)
+	Juice.flash_sprite(sprite, Color(3, 0.3, 0.3))
+	Juice.punch_scale(sprite, 0.3)
 
 func _on_body_entered(body: Node2D) -> void:
 	colliding_bodies.append(body)
