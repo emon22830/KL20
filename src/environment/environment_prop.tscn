@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://buut1dwp6qkod"]
 
+[ext_resource type="FontFile" uid="uid://d3itg5u8xvefx" path="res://asset/font/AvenuePixel-Regular.otf" id="1_wc0fl"]
+
 [node name="EnvironmentProp" type="Node2D" unique_id=1830808911]
 z_index = -1
 
@@ -9,6 +11,7 @@ offset_top = -50.0
 offset_right = 150.0
 offset_bottom = 50.0
 mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_wc0fl")
 theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
 text = "rock"
