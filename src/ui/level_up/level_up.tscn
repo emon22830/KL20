@@ -15,6 +15,20 @@
 process_mode = 3
 script = ExtResource("1_sgb4v")
 
+[node name="Infinite" type="Label" parent="." unique_id=1322824019]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -97.0
+offset_top = -1610.0
+offset_right = 100.0
+offset_bottom = 1395.4492
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.2469503, 0.2469503, 0.2469503, 1)
+theme_override_font_sizes/font_size = 3000
+text = "∞"
+
 [node name="Ui" type="Control" parent="." unique_id=941333929]
 layout_mode = 3
 anchors_preset = 15
@@ -66,6 +80,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="Ui/CardScreen" unique_id=540118551]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 13.135
+offset_right = 1645.0
+offset_bottom = 273.135
+theme_override_fonts/font = ExtResource("2_wc7sj")
+theme_override_font_sizes/font_size = 200
+text = "{ Select Your Card }"
+horizontal_alignment = 1
 
 [node name="Card1" type="NinePatchRect" parent="Ui/CardScreen" unique_id=646614199]
 layout_mode = 0
