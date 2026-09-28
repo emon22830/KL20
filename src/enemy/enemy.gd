@@ -25,6 +25,10 @@ func set_hp() -> void:
 
 func on_take_damage(amount : int) -> void:
 	hp -= amount
+	if hp > 0:
+		Juice.flash_sprite(sprite)
+		Juice.punch_scale(sprite, 0.2)
+		Juice.shake(0.08)
 	check_hp()
 
 func check_hp() -> void:
@@ -44,7 +48,13 @@ func die() -> void:
 	orb.xp_value = ceili(max_hp / 4.0)
 	get_tree().current_scene.add_child.call_deferred(orb)
 	GameManager.enemy_list.erase(self)
-	
+
+	Juice.death_pop(self, sprite)
+	Juice.shake(0.25)
+	Juice.hit_stop(0.04)
+	Juice.bloom_pulse(0.3)
+
+
 	queue_free()
 
 func _process(delta: float) -> void:

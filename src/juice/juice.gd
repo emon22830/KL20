@@ -124,7 +124,7 @@ func kill_meta_tween(target: Object, key: String) -> void:
 			old.kill()
 
 
-func death_pop(owner_node: Node2D, sprite: Control, grow: float = 1.8, duration: float = 0.25) -> void:
+func death_pop(owner_node: Node2D, sprite: Control, grow: float = 2.5, duration: float = 0.3) -> void:
 	if not is_instance_valid(owner_node) or not is_instance_valid(sprite):
 		return
 
