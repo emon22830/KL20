@@ -69,6 +69,7 @@ func die() -> void:
 	#pass
 
 func _physics_process(delta: float) -> void:
+	if GameManager.player == null : return
 	var target_dir = (GameManager.player.position - position).normalized()
 	var angle_diff = heading.angle_to(target_dir)   # signed angle, -PI to PI
 	var max_turn = turn_speed * delta

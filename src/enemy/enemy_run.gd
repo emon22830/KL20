@@ -61,6 +61,7 @@ func die() -> void:
 	queue_free()
 
 func _process(delta: float) -> void:
+	if GameManager.player == null : return
 	var direction = GameManager.player.position - position 
 	if is_hurt:
 		velocity = direction.normalized() * 100

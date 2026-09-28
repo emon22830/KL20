@@ -65,7 +65,7 @@ func die() -> void:
 	#pass
 
 func _physics_process(delta: float) -> void:
-	
+	if GameManager.player == null : return
 	if abs(linear_velocity) > Vector2(0.01, 0.01) : 
 		linear_velocity += -linear_velocity / 10
 		return

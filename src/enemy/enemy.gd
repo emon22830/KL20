@@ -59,6 +59,7 @@ func die() -> void:
 	queue_free()
 
 func _process(delta: float) -> void:
+	if GameManager.player == null : return
 	var direction = GameManager.player.position - position 
 	velocity = direction.normalized() * 200
 	move_and_slide()
